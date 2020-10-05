@@ -1,0 +1,20 @@
+{
+  "name": "marketing-project",
+  "version": "1.0.0",
+  "description": "Online marketing tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jill-Ann/marketing-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jill-Ann/marketing-project/issues"
+  },
+  "homepage": "https://github.com/Jill-Ann/marketing-project#readme"
+}

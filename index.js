@@ -59,6 +59,7 @@ class Campaign {
 const jill = new User('Jill');
 const regina = new User('Regina');
 const nastaran = new User('Nastaran');
+const steve = new User('Steve');
 
 console.log("Nastran premium account? " + nastaran.premium);
 

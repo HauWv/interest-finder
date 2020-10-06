@@ -61,28 +61,28 @@ console.log("Nastran premium account? " + nastaran.premium);
 nastaran.buyPremium();
 console.log("Nastran premium account? " + nastaran.premium);
 
-// create keywords
+// create interests
 const coffee = jill.createInterest('coffee');
 const tea = regina.createInterest('tea');
 const chocolate = jill.createInterest('chocolate');
 
-// use keywords
+// test interests
 jill.testInterest(coffee);
 jill.testInterest(chocolate);
 console.log('Jill\'s tested interests: ', jill.testedInterests);
 
-// star keywords 
+// star interests
 regina.starInterest(tea);
 regina.starInterest(chocolate);
 console.log('Regina\'s starred interests: ', regina.starredInterests);
 // chocolate tested should be false! 
 
-// view my used keywords
+// view my tested interests
 regina.viewTestedInterests();
 jill.viewTestedInterests();
 nastaran.viewTestedInterests();
 
-// view my starred keywords
+// view my starred interests
 regina.viewStarredInterests();
 jill.viewStarredInterests();
 nastaran.viewStarredInterests();

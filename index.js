@@ -2,59 +2,53 @@ class User {
     constructor(name) {
         this.name = name;
         this.premium = false;
-        this.usedKeywords = [];
-        this.starredKeywords = [];
+        this.testedInterests = [];
+        this.starredInterests = [];
     }
 
     buyPremium() {
         this.premium = true;
     }
 
-    createKeyword(name) {
-        return new Keyword(name);
+    createInterest(name) {
+        return new Interest(name);
     }
 
-    useKeyword(keyword) {
-        this.usedKeywords.push(keyword);
-        keyword.used = true;
+    testInterest(interest) {
+        this.testedInterests.push(interest);
+        interest.tested = true;
     }
 
-    starKeyword(keyword) {
-        this.starredKeywords.push(keyword);
-        keyword.starred = true;
+    starInterest(interest) {
+        this.starredInterests.push(interest);
+        interest.starred = true;
     }
 
-    viewUsedKeywords() {
-        if (this.usedKeywords.length === 0) {
-            console.log("No used keywords yet!");
+    viewTestedInterests() {
+        if (this.testedInterests.length === 0) {
+            console.log("No tested interests yet!");
             return;
         }
-        this.usedKeywords.forEach(keyword => console.log(keyword.name));
+        this.testedInterests.forEach(interest => console.log(interest.name));
     }
 
-    viewStarredKeywords() {
-        if (this.starredKeywords.length === 0) {
-            console.log("You haven't starred any keywords yet.");
+    viewStarredInterests() {
+        if (this.starredInterests.length === 0) {
+            console.log("You haven't starred any interests yet.");
             return;
         }
-        this.starredKeywords.forEach(keyword => console.log(keyword.name));
+        this.starredInterests.forEach(interest => console.log(interest.name));
     }
 }
 
-class Keyword {
+class Interest {
     constructor(name) {
         this.name = name;
-        this.used = false;
+        this.tested = false;
         this.starred = false;
     }
 }
 
-class Campaign {
-    constructor(name) {
-        this.name = name;
-        this.active = true;
-    }
-}
 
 const jill = new User('Jill');
 const regina = new User('Regina');
@@ -67,27 +61,27 @@ nastaran.buyPremium();
 console.log("Nastran premium account? " + nastaran.premium);
 
 // create keywords
-const coffee = jill.createKeyword('coffee');
-const tea = regina.createKeyword('tea');
-const chocolate = jill.createKeyword('chocolate');
+const coffee = jill.createInterest('coffee');
+const tea = regina.createInterest('tea');
+const chocolate = jill.createInterest('chocolate');
 
 // use keywords
-jill.useKeyword(coffee);
-jill.useKeyword(chocolate);
-console.log('Jill\'s used keywords: ', jill.usedKeywords);
+jill.testInterest(coffee);
+jill.testInterest(chocolate);
+console.log('Jill\'s tested interests: ', jill.testedInterests);
 
 // star keywords 
-regina.starKeyword(tea);
-regina.starKeyword(chocolate);
-console.log('Regina\'s starred keywords: ', regina.starredKeywords);
-// chocolate used should be false! 
+regina.starInterest(tea);
+regina.starInterest(chocolate);
+console.log('Regina\'s starred interests: ', regina.starredInterests);
+// chocolate tested should be false! 
 
 // view my used keywords
-regina.viewUsedKeywords();
-jill.viewUsedKeywords();
-nastaran.viewUsedKeywords();
+regina.viewTestedInterests();
+jill.viewTestedInterests();
+nastaran.viewTestedInterests();
 
 // view my starred keywords
-regina.viewStarredKeywords();
-jill.viewStarredKeywords();
-nastaran.viewStarredKeywords();
+regina.viewStarredInterests();
+jill.viewStarredInterests();
+nastaran.viewStarredInterests();

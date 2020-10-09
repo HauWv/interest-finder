@@ -26,13 +26,6 @@ class User {
 
 }
 
-class Interest {
-    constructor(name) {
-        this.name = name;
-        this.tested = false;
-        this.starred = false;
-    }
-}
 
 
 const jill = new User('Jill');

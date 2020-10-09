@@ -6,6 +6,16 @@ class User {
         this.starredInterests = [];
     }
 
+    get profile() {
+        return `
+    # ${this.name} 
+    ## Account: ${this.premium === true ? 'Premium' : 'Basic'}
+    ## Starred interests (${this.starredInterests.length})
+    ${this.starredInterests.map(interest => interest.name).join(', ')}
+    ## Tested interests (${this.testedInterests.length})
+    ${this.testedInterests.map(interest => interest.name).join(', ')}
+    `
+    }
     buyPremium() {
         this.premium = true;
     }

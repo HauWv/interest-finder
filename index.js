@@ -21,3 +21,9 @@ jill.testInterest(chocolate);
 // star interests
 regina.starInterest(tea);
 regina.starInterest(chocolate);
+jill.starInterest(coffee)
+jill.starInterest(chocolate)
+jill.starInterest(tea)
+
+console.log(jill.profile);
+console.log(regina.profile);

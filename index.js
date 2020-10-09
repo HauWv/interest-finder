@@ -1,5 +1,5 @@
 const User = require('./user');
-const Interst = require('./interest');
+const Interest = require('./interest');
 
 const jill = new User('Jill');
 const regina = new User('Regina');

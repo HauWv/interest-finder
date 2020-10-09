@@ -24,21 +24,6 @@ class User {
         interest.starred = true;
     }
 
-    viewTestedInterests() {
-        if (this.testedInterests.length === 0) {
-            console.log("No tested interests yet!");
-            return;
-        }
-        this.testedInterests.forEach(interest => console.log(interest.name));
-    }
-
-    viewStarredInterests() {
-        if (this.starredInterests.length === 0) {
-            console.log("You haven't starred any interests yet.");
-            return;
-        }
-        this.starredInterests.forEach(interest => console.log(interest.name));
-    }
 }
 
 class Interest {

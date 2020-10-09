@@ -25,13 +25,3 @@ regina.starInterest(tea);
 regina.starInterest(chocolate);
 console.log('Regina\'s starred interests: ', regina.starredInterests);
 // chocolate tested should be false! 
-
-// view my tested interests
-regina.viewTestedInterests();
-jill.viewTestedInterests();
-nastaran.viewTestedInterests();
-
-// view my starred interests
-regina.viewStarredInterests();
-jill.viewStarredInterests();
-nastaran.viewStarredInterests();

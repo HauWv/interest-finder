@@ -1,3 +1,4 @@
+const Interest = require('./interest');
 class User {
     constructor(name) {
         this.name = name;

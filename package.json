@@ -1,6 +1,6 @@
 {
   "name": "marketing-project",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Online marketing tools",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Jill-Ann/marketing-project.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jill",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Jill-Ann/marketing-project/issues"

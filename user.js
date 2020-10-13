@@ -17,6 +17,7 @@ class User {
     ${this.testedInterests.map(interest => interest.name).join(', ')}
     `
     }
+
     buyPremium() {
         this.premium = true;
     }

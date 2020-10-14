@@ -3,7 +3,6 @@ const Interest = require('./interest')
 class User {
   constructor(name) {
     this.name = name
-    this.premium = false
     this.testedInterests = []
     this.starredInterests = []
   }
@@ -17,10 +16,6 @@ class User {
     ## Tested interests (${this.testedInterests.length})
     ${this.testedInterests.map(interest => interest.name).join(', ')}
     `
-  }
-
-  buyPremium() {
-    this.premium = true
   }
 
   createInterest(name) {
@@ -37,4 +32,5 @@ class User {
     interest.starred = true
   }
 }
+
 module.exports = User

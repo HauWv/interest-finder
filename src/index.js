@@ -27,3 +27,6 @@ regina.starInterest(chocolate)
 jill.starInterest(coffee)
 jill.starInterest(chocolate)
 jill.starInterest(tea)
+
+console.log(jill.testedInterests)
+console.log(tea.tested)

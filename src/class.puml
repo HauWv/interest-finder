@@ -1,0 +1,21 @@
+@startuml Marketing-Project Class Diagram
+class User {
+    name: string
+    testedInterests: [Interest]
+    starredInterests: [Interest]
+    constructor(name: string, testedInterests: [Interest], starredInterests: [Interest])
+    createInterest(name: Interest)
+    testInterest(interest: Interest)
+    starInterest(interest: Interest)
+}
+
+class Interest {
+    name: string
+    tested: boolean
+    starred: boolean
+    constructor(name: string, tested: boolean, starred: boolean)
+}
+
+User "1" o----> "0..*" Interest : tests, stars
+
+@enduml

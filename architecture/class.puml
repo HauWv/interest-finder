@@ -13,9 +13,22 @@ class Interest {
     name: string
     tested: boolean
     starred: boolean
+    totalSpent: number
     constructor(name: string, tested: boolean, starred: boolean)
 }
 
-User "1" o----> "0..*" Interest : tests, stars
+class Project {
+    name: string
+    startDate: Date
+    active: boolean
+    client: string
+    product: string
+    interests: [Interest]
+    constructor(name: string, startDate: date, active: boolean, interests: [Interest])
+}
+
+User "1" *----> "0..*" Interest : tests, stars
+User "1" *----> "0..*" Project : creates, has
+Project o----> "0..*" Interest : contains
 
 @enduml

@@ -3,6 +3,7 @@ class Interest {
     this.name = name
     this.tested = false
     this.starred = false
+    this.totalSpent = 0
   }
 }
 

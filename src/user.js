@@ -1,10 +1,12 @@
 const Interest = require('./interest')
+const Project = require('./project')
 
 class User {
   constructor(name) {
     this.name = name
     this.testedInterests = []
     this.starredInterests = []
+    this.projects = []
   }
 
   get profile() {
@@ -30,6 +32,20 @@ class User {
   starInterest(interest) {
     this.starredInterests.push(interest)
     interest.starred = true
+  }
+
+  createProject(name, client, product) {
+    const project = new Project(name, client, product)
+    this.projects.push(project)
+    return project
+  }
+
+  addInterestToProject(interest, project) {
+    project.savedInterests.push(interest)
+  }
+
+  deactivateProject(project) {
+    project.active = false
   }
 }
 

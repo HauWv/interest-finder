@@ -41,7 +41,7 @@ class User {
   }
 
   addInterestToProject(interest, project) {
-    project.savedInterests.push(interest)
+    project.interests.push(interest)
   }
 
   deactivateProject(project) {

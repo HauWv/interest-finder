@@ -5,8 +5,7 @@ class Project {
     this.active = true
     this.client = client
     this.product = product
-    this.testedInterests = []
-    this.savedInterests = []
+    this.interests = []
   }
 }
 

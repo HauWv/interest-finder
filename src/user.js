@@ -2,8 +2,9 @@ const Interest = require('./interest')
 const Project = require('./project')
 
 class User {
-  constructor(name) {
+  constructor(name, email) {
     this.name = name
+    this.email = email
     this.testedInterests = []
     this.starredInterests = []
     this.projects = []

@@ -40,10 +40,6 @@ class User {
     this.projects.push(project)
     return project
   }
-
-  addInterestToProject(interest, project) {
-    project.interests.push(interest)
-  }
 }
 
 module.exports = User

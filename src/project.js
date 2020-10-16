@@ -6,6 +6,14 @@ class Project {
     this.product = product
     this.interests = []
   }
+
+  set notes(newNote) {
+    this.note = newNote
+  }
+
+  addInterest(interest) {
+    this.interests.push(interest)
+  }
 }
 
 module.exports = Project

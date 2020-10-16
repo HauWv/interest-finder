@@ -16,5 +16,3 @@ class Project {
 }
 
 module.exports = Project
-
-// does it make sense to have a typeOfConversion property? Can one project have different conversion types? Or normally only one?

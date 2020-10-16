@@ -37,8 +37,10 @@ jillProject.addInterest(jillChocolate)
 reginaProject.addInterest(reginaVeganFood)
 reginaProject.addInterest(reginaIceCream)
 reginaProject.addInterest(reginaBananaBread)
+reginaSideHustle.addInterest(reginaBananaBread)
 
-// deactivate project
-regina.deactivateProject(reginaSideHustle)
+// add notes
+reginaProject.notes = 'For Foodies'
+console.log(reginaProject)
 
-reginaProject.interests.forEach(interest => console.log(interest.name))
+// reginaProject.interests.forEach(interest => console.log(interest.name))

@@ -4,29 +4,28 @@ require('./project')
 
 const jill = new User('Jill')
 const regina = new User('Regina')
-const steve = new User('Steve')
+const steve = new User('Steve', 'stephen.a.ingram@gmail.com')
 
 // create interests
-const coffee = jill.createInterest('coffee')
-const tea = regina.createInterest('tea')
-const chocolate = jill.createInterest('chocolate')
-const hackers = steve.createInterest('hackers')
-const veganFood = regina.createInterest('vegan food')
-const iceCream = regina.createInterest('ice cream')
-const bananaBread = regina.createInterest('banana bread')
+const jillCoffee = jill.createInterest('coffee')
+const reginaTea = regina.createInterest('tea')
+const jillChocolate = jill.createInterest('chocolate')
+const steveHackers = steve.createInterest('hackers')
+const reginaVeganFood = regina.createInterest('vegan food')
+const reginaIceCream = regina.createInterest('ice cream')
+const reginaBananaBread = regina.createInterest('banana bread')
+const steveCoffee = steve.createInterest('coffee')
 
 // test interests
-jill.testInterest(coffee)
-jill.testInterest(chocolate)
-steve.testInterest(hackers)
-steve.testInterest(tea)
+jill.testInterest(jillCoffee)
+jill.testInterest(jillChocolate)
+steve.testInterest(steveHackers)
 
 // star interests
-regina.starInterest(tea)
-regina.starInterest(chocolate)
-jill.starInterest(coffee)
-jill.starInterest(chocolate)
-jill.starInterest(tea)
+regina.starInterest(reginaTea)
+jill.starInterest(jillCoffee)
+jill.starInterest(jillChocolate)
+steve.starInterest(steveCoffee)
 
 // create projects
 const jillProject = jill.createProject('jill project', 'new client', 'bicycles')
@@ -34,10 +33,10 @@ const reginaProject = regina.createProject('coyotiv project', undefined, 'voodie
 const reginaSideHustle = regina.createProject('side hustle')
 
 // add interests to project
-jill.addInterestToProject(chocolate, jillProject)
-regina.addInterestToProject(veganFood, reginaProject)
-regina.addInterestToProject(bananaBread, reginaProject)
-regina.addInterestToProject(iceCream, reginaSideHustle)
+jill.addInterestToProject(jillChocolate, jillProject)
+regina.addInterestToProject(reginaVeganFood, reginaProject)
+regina.addInterestToProject(reginaBananaBread, reginaProject)
+regina.addInterestToProject(reginaIceCream, reginaSideHustle)
 
 // deactivate project
 regina.deactivateProject(reginaSideHustle)

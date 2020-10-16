@@ -24,9 +24,8 @@ class Project {
     startDate: Date
     endDate: Date
     client: string
-    product: string
     interests: [Interest]
-    constructor(name: string, startDate: Date, endDate: Date, active: boolean)
+    constructor(name: string, startDate: Date, endDate: Date)
     addInterest(interest: Interest)
     removeInterest(interest: Interest)
 }

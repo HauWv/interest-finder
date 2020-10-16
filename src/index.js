@@ -28,17 +28,19 @@ jill.starInterest(jillChocolate)
 steve.starInterest(steveCoffee)
 
 // create projects
-const jillProject = jill.createProject('jill project', 'new client', 'bicycles')
-const reginaProject = regina.createProject('coyotiv project', undefined, 'voodie app')
+const jillProject = jill.createProject('jill project')
+const reginaProject = regina.createProject('voodie project')
 const reginaSideHustle = regina.createProject('side hustle')
 
 // add interests to project
-jill.addInterestToProject(jillChocolate, jillProject)
-regina.addInterestToProject(reginaVeganFood, reginaProject)
-regina.addInterestToProject(reginaBananaBread, reginaProject)
-regina.addInterestToProject(reginaIceCream, reginaSideHustle)
+jillProject.addInterest(jillChocolate)
+reginaProject.addInterest(reginaVeganFood)
+reginaProject.addInterest(reginaIceCream)
+reginaProject.addInterest(reginaBananaBread)
+reginaSideHustle.addInterest(reginaBananaBread)
 
-// deactivate project
-regina.deactivateProject(reginaSideHustle)
+// add notes
+reginaProject.notes = 'For Foodies'
+console.log(reginaProject)
 
-reginaProject.interests.forEach(interest => console.log(interest.name))
+// reginaProject.interests.forEach(interest => console.log(interest.name))

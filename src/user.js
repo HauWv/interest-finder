@@ -35,18 +35,10 @@ class User {
     interest.starred = true
   }
 
-  createProject(name, client, product) {
-    const project = new Project(name, client, product)
+  createProject(name) {
+    const project = new Project(name)
     this.projects.push(project)
     return project
-  }
-
-  addInterestToProject(interest, project) {
-    project.interests.push(interest)
-  }
-
-  deactivateProject(project) {
-    project.active = false
   }
 }
 

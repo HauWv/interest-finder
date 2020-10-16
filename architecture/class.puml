@@ -27,6 +27,10 @@ class Project {
     constructor(name: string, startDate: date, active: boolean, interests: [Interest])
 }
 
+class Login {
+    
+}
+
 User "1" *----> "0..*" Interest : tests, stars
 User "1" *----> "0..*" Project : creates, has
 Project o----> "0..*" Interest : contains

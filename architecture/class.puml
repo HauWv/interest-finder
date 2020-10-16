@@ -1,10 +1,11 @@
 @startuml Marketing-Project Class Diagram
 class User {
     name: string
+    email: string
     testedInterests: [Interest]
     starredInterests: [Interest]
-    constructor(name: string, testedInterests: [Interest], starredInterests: [Interest])
-    createInterest(name: Interest)
+    constructor(name: string, email: string)
+    createInterest(name: string)
     testInterest(interest: Interest)
     starInterest(interest: Interest)
 }
@@ -14,22 +15,27 @@ class Interest {
     tested: boolean
     starred: boolean
     totalSpent: number
-    constructor(name: string, tested: boolean, starred: boolean)
+    testedAt: Date
+    constructor(name: string)
 }
 
 class Project {
     name: string
     startDate: Date
-    active: boolean
+    endDate: Date
     client: string
     product: string
     interests: [Interest]
-    constructor(name: string, startDate: date, active: boolean, interests: [Interest])
+    constructor(name: string, startDate: Date, endDate: Date, active: boolean)
+    addInterest(interest: Interest)
+    removeInterest(interest: Interest)
 }
 
-class Login {
-    
-}
+class Login {}
+
+class SignUp {}
+
+class spendManager {}
 
 User "1" *----> "0..*" Interest : tests, stars
 User "1" *----> "0..*" Project : creates, has

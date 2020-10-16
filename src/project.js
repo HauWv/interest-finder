@@ -1,9 +1,8 @@
 class Project {
-  constructor(name, client = '', product = '') {
+  constructor(name) {
     this.name = name
     this.startDate = Date.now()
-    this.client = client
-    this.product = product
+    this.note = ''
     this.interests = []
   }
 

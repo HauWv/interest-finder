@@ -4,6 +4,7 @@ class User {
     email: string
     testedInterests: [Interest]
     starredInterests: [Interest]
+    projects: [Project]
     constructor(name: string, email: string)
     createInterest(name: string)
     testInterest(interest: Interest)
@@ -23,9 +24,9 @@ class Project {
     name: string
     startDate: Date
     endDate: Date
-    client: string
+    notes: string
     interests: [Interest]
-    constructor(name: string, startDate: Date, endDate: Date)
+    constructor(name: string, notes: string)
     addInterest(interest: Interest)
     removeInterest(interest: Interest)
 }

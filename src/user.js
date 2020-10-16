@@ -44,10 +44,6 @@ class User {
   addInterestToProject(interest, project) {
     project.interests.push(interest)
   }
-
-  deactivateProject(project) {
-    project.active = false
-  }
 }
 
 module.exports = User

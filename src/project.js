@@ -2,7 +2,6 @@ class Project {
   constructor(name, client = '', product = '') {
     this.name = name
     this.startDate = Date.now()
-    this.active = true
     this.client = client
     this.product = product
     this.interests = []

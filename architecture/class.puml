@@ -2,6 +2,7 @@
 class User {
     name: string
     email: string
+    password: string
     testedInterests: [Interest]
     starredInterests: [Interest]
     projects: [Project]
@@ -36,10 +37,7 @@ class SignUp {
 }
 
 class Login {
-    name: string
-    email: string
-    password: string
-    login(name: string, email: string, password: string)
+    login(name: string, password: string)
 }
 
 class spendManager {}

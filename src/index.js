@@ -1,10 +1,14 @@
-const User = require('./user')
+require('./user')
 require('./interest')
 require('./project')
+const SignUp = require('./signup')
+require('./login')
 
-const jill = new User('Jill')
-const regina = new User('Regina')
-const steve = new User('Steve', 'stephen.a.ingram@gmail.com')
+// sign up users
+const signUp = new SignUp()
+const jill = signUp.signUp('Jill', 'jill@coyotiv.com', 'mypassword')
+const regina = signUp.signUp('Regina', 'regina@coyotiv.com', 'mypassword')
+const steve = signUp.signUp('steve', 'steve@coyotiv.com', 'mypassword')
 
 // create interests
 const jillCoffee = jill.createInterest('coffee')
@@ -41,6 +45,5 @@ reginaSideHustle.addInterest(reginaBananaBread)
 
 // add notes
 reginaProject.notes = 'For Foodies'
-console.log(reginaProject)
 
 // reginaProject.interests.forEach(interest => console.log(interest.name))

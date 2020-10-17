@@ -1,7 +1,7 @@
 const User = require('./user')
 
 class SignUp {
-  signUp(name, email, password) {
+  constructor(name, email, password) {
     return new User(name, email, password)
   }
 }

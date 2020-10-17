@@ -1,6 +1,7 @@
 class Login {
-  login(email, password) {
-    console.log(email, password)
+  constructor(email, password) {
+    this.email = email
+    this.password = password
   }
 }
 

@@ -5,10 +5,9 @@ const SignUp = require('./signup')
 require('./login')
 
 // sign up users
-const signUp = new SignUp()
-const jill = signUp.signUp('Jill', 'jill@coyotiv.com', 'mypassword')
-const regina = signUp.signUp('Regina', 'regina@coyotiv.com', 'mypassword')
-const steve = signUp.signUp('steve', 'steve@coyotiv.com', 'mypassword')
+const jill = new SignUp('Jill', 'jill@coyotiv.com', 'mypassword')
+const regina = new SignUp('Regina', 'regina@coyotiv.com', 'mypassword')
+const steve = new SignUp('Steve', 'steve@coyotiv.com', 'mypassword')
 
 // create interests
 const jillCoffee = jill.createInterest('coffee')

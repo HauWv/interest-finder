@@ -41,6 +41,5 @@ reginaSideHustle.addInterest(reginaBananaBread)
 
 // add notes
 reginaProject.notes = 'For Foodies'
-console.log(reginaProject)
 
 // reginaProject.interests.forEach(interest => console.log(interest.name))

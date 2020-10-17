@@ -31,14 +31,24 @@ class Project {
     removeInterest(interest: Interest)
 }
 
-class Login {}
+class SignUp {
+    signUp(name: string, email: string, password: string) : User
+}
 
-class SignUp {}
+class Login {
+    name: string
+    email: string
+    password: string
+    login(name: string, email: string, password: string)
+}
 
 class spendManager {}
 
-User "1" *----> "0..*" Interest : tests, stars
-User "1" *----> "0..*" Project : creates, has
-Project o----> "0..*" Interest : contains
+SignUp --> User
+Login --> User
+
+User "1" *--> "0..*" Interest : tests, stars
+User "1" *--> "0..*" Project : creates, has
+Project o--> "0..*" Interest : contains
 
 @enduml

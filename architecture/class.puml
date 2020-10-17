@@ -33,11 +33,11 @@ class Project {
 }
 
 class SignUp {
-    signUp(name: string, email: string, password: string) : User
+    constructor(name: string, email: string, password: string) : User
 }
 
 class Login {
-    login(name: string, password: string)
+    constructor(email: string, password: string)
 }
 
 class spendManager {}

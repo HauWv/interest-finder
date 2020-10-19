@@ -52,9 +52,25 @@ reginaProject.notes = 'For Foodies'
 
 // reginaProject.interests.forEach(interest => console.log(interest.name))
 
+const users = [jill, regina, steve]
+
 /* GET users listing. */
 router.get('/', (req, res) => {
-  res.send('respond with a resource')
+  let result = users
+
+  if (req.query.name) {
+    result = users.filter(user => user.name == req.query.name)
+  }
+
+  res.send(result)
+})
+
+router.get('/:userId', (req, res) => {
+  res.send(users[req.params.userId])
+  // const user = users[req.params.userId]
+
+  // if (user) res.render('user', { user })
+  // else res.sendStatus(404)
 })
 
 module.exports = router

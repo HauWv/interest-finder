@@ -9,9 +9,10 @@ const SignUp = require('../models/signup')
 require('../models/login')
 
 // sign up users
-const jill = new SignUp('Jill', 'jill@coyotiv.com', 'mypassword')
-const regina = new SignUp('Regina', 'regina@coyotiv.com', 'mypassword')
-const steve = new SignUp('Steve', 'steve@coyotiv.com', 'mypassword')
+const signUp = new SignUp()
+const jill = signUp.signUp('jill', 'jill@coyotiv.com', 'mypassword')
+const regina = signUp.signUp('regina', 'regina@coyotiv.com', 'mypassword')
+const steve = signUp.signUp('steve', 'steve@coyotiv.com', 'mypassword')
 
 // create interests
 const jillCoffee = jill.createInterest('coffee')
@@ -51,9 +52,25 @@ reginaProject.notes = 'For Foodies'
 
 // reginaProject.interests.forEach(interest => console.log(interest.name))
 
+const users = [jill, regina, steve]
+
 /* GET users listing. */
 router.get('/', (req, res) => {
-  res.send('respond with a resource')
+  let result = users
+
+  if (req.query.name) {
+    result = users.filter(user => user.name == req.query.name)
+  }
+
+  res.send(result)
+})
+
+router.get('/:userId', (req, res) => {
+  res.send(users[req.params.userId])
+  // const user = users[req.params.userId]
+
+  // if (user) res.render('user', { user })
+  // else res.sendStatus(404)
 })
 
 module.exports = router

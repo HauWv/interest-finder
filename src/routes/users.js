@@ -1,8 +1,12 @@
-require('./user')
-require('./interest')
-require('./project')
-const SignUp = require('./signup')
-require('./login')
+const express = require('express')
+
+const router = express.Router()
+
+require('../models/user')
+require('../models/interest')
+require('../models/project')
+const SignUp = require('../models/signup')
+require('../models/login')
 
 // sign up users
 const jill = new SignUp('Jill', 'jill@coyotiv.com', 'mypassword')
@@ -46,3 +50,10 @@ reginaSideHustle.addInterest(reginaBananaBread)
 reginaProject.notes = 'For Foodies'
 
 // reginaProject.interests.forEach(interest => console.log(interest.name))
+
+/* GET users listing. */
+router.get('/', (req, res) => {
+  res.send('respond with a resource')
+})
+
+module.exports = router

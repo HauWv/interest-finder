@@ -1,5 +1,40 @@
 extends layout
 
 block content
-  h1= title
-  p Find Hidden Interests
+  .container
+  .row
+    .col.d-flex.justify-content-center.mt-5
+      h1 Find Hidden Interests
+  .row
+    .col
+      .form-container.mx-5.px-5
+        form.p-4
+          .form-group
+            label Keyword
+            input#key-input.form-control(type='text' placeholder='' name='keyword')
+          .form-group
+            label Search Type
+            select#search-type.form-control
+              option Ad Interest
+              option Associated Interests *
+          .form-group
+            label Language
+            select#locale.form-control
+              option English
+              option German
+              option Spanish
+          .btn-container.d-flex.justify-content-center
+            button.btn.btn-primary.px-5.my-3(type='submit') Go!
+        .note-container.mb-3.text-right
+          p.note
+            | * Note: 
+            i Associated interests
+            |  may not return any results.
+  .row
+    .col.p-4.border-bottom
+      p.result-heading.ml-2 Interest
+    .col.p-4.text-right.border-bottom
+      p.result-heading Audience Size
+  .row
+    .col
+      #results

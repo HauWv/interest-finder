@@ -1,3 +1,4 @@
+// const mongoose = require('mongoose')
 class Interest {
   constructor(name) {
     this.name = name

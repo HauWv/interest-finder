@@ -53,14 +53,17 @@ class User {
     return new Interest(name)
   }
 
-  testInterest(interest) {
+  async testInterest(interest) {
     this.testedInterests.push(interest)
     interest.tested = true
+    await this.save()
   }
 
-  starInterest(interest) {
+  async starInterest(interest) {
     this.starredInterests.push(interest)
     interest.starred = true
+    await this.save()
+    await interest.save()
   }
 
   createProject(name) {

@@ -2,75 +2,61 @@ const express = require('express')
 
 const router = express.Router()
 
-require('../models/user')
+const User = require('../models/user')
 require('../models/interest')
 require('../models/project')
-const SignUp = require('../models/signup')
 require('../models/login')
 
-// sign up users
-const signUp = new SignUp()
-const jill = signUp.signUp('jill', 'jill@coyotiv.com', 'mypassword')
-const regina = signUp.signUp('regina', 'regina@coyotiv.com', 'mypassword')
-const steve = signUp.signUp('steve', 'steve@coyotiv.com', 'mypassword')
+async function main() {
+  // sign up user
+  const jill = await User.create({ name: 'jill', email: 'jill@coyotiv.com', password: 'mypassword' })
+  const regina = await User.create({ name: 'regina', email: 'regina@coyotiv.com', password: 'mypassword' })
+  const steve = await User.create({ name: 'steve', email: 'steve@coyotiv.com', password: 'mypassword' })
 
-// create interests
-const jillCoffee = jill.createInterest('coffee')
-const reginaTea = regina.createInterest('tea')
-const jillChocolate = jill.createInterest('chocolate')
-const steveHackers = steve.createInterest('hackers')
-const reginaVeganFood = regina.createInterest('vegan food')
-const reginaIceCream = regina.createInterest('ice cream')
-const reginaBananaBread = regina.createInterest('banana bread')
-const steveCoffee = steve.createInterest('coffee')
+  // create interests
+  const jillCoffee = await jill.createInterest({ name: 'coffee' })
+  const reginaTea = await regina.createInterest({ name: 'tea' })
+  const jillChocolate = await jill.createInterest({ name: 'chocolate' })
+  const steveHackers = await steve.createInterest({ name: 'hackers' })
 
-// test interests
-jill.testInterest(jillCoffee)
-jill.testInterest(jillChocolate)
-steve.testInterest(steveHackers)
+  // test interests
+  jill.testInterest(jillCoffee)
+  jill.testInterest(jillChocolate)
+  steve.testInterest(steveHackers)
 
-// star interests
-regina.starInterest(reginaTea)
-jill.starInterest(jillCoffee)
-jill.starInterest(jillChocolate)
-steve.starInterest(steveCoffee)
+  // star interests
+  regina.starInterest(reginaTea)
+  jill.starInterest(jillCoffee)
 
-// create projects
-const jillProject = jill.createProject('jill project')
-const reginaProject = regina.createProject('voodie project')
-const reginaSideHustle = regina.createProject('side hustle')
+  // create projects
+  const jillProject = jill.createProject({ name: 'jill project' })
+  const reginaProject = regina.createProject({ name: 'voodie project' })
 
-// add interests to project
-jillProject.addInterest(jillChocolate)
-reginaProject.addInterest(reginaVeganFood)
-reginaProject.addInterest(reginaIceCream)
-reginaProject.addInterest(reginaBananaBread)
-reginaSideHustle.addInterest(reginaBananaBread)
+  // add interests to project
+  jillProject.addInterest(jillChocolate)
+  reginaProject.addInterest(reginaTea)
 
-// add notes
-reginaProject.notes = 'For Foodies'
+  // add notes
+  reginaProject.notes = 'For Foodies'
+  // console.log(jill)
+}
 
-// reginaProject.interests.forEach(interest => console.log(interest.name))
+main()
 
-const users = [jill, regina, steve]
+router.get('/:userId', async (req, res) => {
+  const user = await User.findById(req.params.userId)
 
-/* GET users listing. */
-router.get('/', (req, res) => {
-  let result = users
-
-  if (req.query.name) {
-    result = users.filter(user => user.name == req.query.name)
-  }
-
-  res.send(result)
+  if (user) res.render('user', { user })
+  else res.sendStatus(404)
 })
 
-router.get('/:userId', (req, res) => {
-  res.send(users[req.params.userId])
-  // const user = users[req.params.userId]
+/* GET register page */
+// router.get('/', (req, res) => {
+//   res.render('user', { title: 'Register' })
+// })
 
-  // if (user) res.render('user', { user })
-  // else res.sendStatus(404)
-})
+// router.post('/', async (req, res) => {
+//   await User.create({ name: req.body.name, email: req.body.email, password: req.body.password })
+// })
 
 module.exports = router

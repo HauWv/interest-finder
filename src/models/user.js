@@ -1,16 +1,44 @@
+const mongoose = require('mongoose')
 const Interest = require('./interest')
 const Project = require('./project')
 
-class User {
-  constructor(name, email, password) {
-    this.name = name
-    this.email = email
-    this.password = password
-    this.testedInterests = []
-    this.starredInterests = []
-    this.projects = []
-  }
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  testedInterests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Interest',
+    },
+  ],
+  starredInterests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Interest',
+    },
+  ],
+  projects: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Project',
+    },
+  ],
+})
 
+class User {
   get profile() {
     return `
     # ${this.name} 
@@ -43,4 +71,5 @@ class User {
   }
 }
 
-module.exports = User
+userSchema.loadClass(User)
+module.exports = mongoose.model('User', userSchema)

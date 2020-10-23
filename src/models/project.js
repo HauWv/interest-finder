@@ -1,18 +1,21 @@
-class Project {
-  constructor(name) {
-    this.name = name
-    this.startDate = Date.now()
-    this.note = ''
-    this.interests = []
-  }
+const mongoose = require('mongoose')
 
+const projectSchema = new mongoose.Schema({
+  name: String,
+  startDate: Date,
+  note: String,
+  interests: [],
+})
+class Project {
   set notes(newNote) {
     this.note = newNote
   }
 
-  addInterest(interest) {
+  async addInterest(interest) {
     this.interests.push(interest)
+    await this.save()
   }
 }
 
-module.exports = Project
+projectSchema.loadClass(Project)
+module.exports = mongoose.model('Project', projectSchema)

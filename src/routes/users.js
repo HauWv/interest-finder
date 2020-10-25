@@ -16,41 +16,40 @@ router.get('/', async (req, res) => {
   res.send(await User.find(query))
 })
 
-async function main() {
-  // sign up user
+router.get('/initialize', async (req, res) => {
   const jill = await User.create({ name: 'jill', email: 'jill@coyotiv.com', password: 'mypassword' })
   const regina = await User.create({ name: 'regina', email: 'regina@coyotiv.com', password: 'mypassword' })
   const steve = await User.create({ name: 'steve', email: 'steve@coyotiv.com', password: 'mypassword' })
 
   // create interests
-  const jillCoffee = await jill.createInterest({ name: 'coffee' })
-  const reginaTea = await regina.createInterest({ name: 'tea' })
-  const jillChocolate = await jill.createInterest({ name: 'chocolate' })
-  const steveHackers = await steve.createInterest({ name: 'hackers' })
+  const jillCoffee = await jill.createInterest('coffee')
+  const reginaTea = await regina.createInterest('tea')
+  const steveHackers = await steve.createInterest('hackers')
+  const jillChocolate = await jill.createInterest('chocolate')
+  // ;[jillCoffee, reginaTea, jillChocolate, steveHackers].forEach(interest => interest.save())
 
   // test interests
-  jill.testInterest(jillCoffee)
-  jill.testInterest(jillChocolate)
-  steve.testInterest(steveHackers)
+  await jill.testInterest(jillCoffee)
+  await jill.testInterest(jillChocolate)
+  await steve.testInterest(steveHackers)
 
   // star interests
-  regina.starInterest(reginaTea)
-  jill.starInterest(jillCoffee)
+  await regina.starInterest(reginaTea)
+  await jill.starInterest(jillCoffee)
 
   // create projects
-  const jillProject = jill.createProject({ name: 'jill project' })
-  const reginaProject = regina.createProject({ name: 'voodie project' })
+  const jillProject = await jill.createProject('jill project') // error from this line
+  const reginaProject = await regina.createProject('voodie project')
 
   // add interests to project
-  jillProject.addInterest(jillChocolate)
-  reginaProject.addInterest(reginaTea)
+  await jillProject.addInterest(jillChocolate)
+  await reginaProject.addInterest(reginaTea)
 
   // add notes
   reginaProject.notes = 'For Foodies'
   // console.log(jill)
-}
-
-main()
+  res.sendStatus(200)
+})
 
 router.get('/:userId', async (req, res) => {
   const user = await User.findById(req.params.userId).populate('projects')

@@ -1,10 +1,20 @@
-class Interest {
-  constructor(name) {
-    this.name = name
-    this.tested = false
-    this.starred = false
-    this.totalSpent = 0
-  }
-}
+const mongoose = require('mongoose')
 
-module.exports = Interest
+const interestSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  tested: {
+    type: Boolean,
+  },
+  starred: {
+    type: Boolean,
+  },
+  totalSpent: {
+    type: Number,
+  },
+})
+
+module.exports = mongoose.model('Interest', interestSchema)

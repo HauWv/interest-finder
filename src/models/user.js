@@ -1,20 +1,51 @@
+const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
 const Interest = require('./interest')
 const Project = require('./project')
 
-class User {
-  constructor(name, email, password) {
-    this.name = name
-    this.email = email
-    this.password = password
-    this.testedInterests = []
-    this.starredInterests = []
-    this.projects = []
-  }
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  email: {
+    type: String,
+    // unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    // unique: true,
+    required: true,
+  },
+  testedInterests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Interest',
+      autopopulate: true,
+    },
+  ],
+  starredInterests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Interest',
+      autopopulate: true,
+    },
+  ],
+  projects: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Project',
+      autopopulate: true,
+    },
+  ],
+})
 
+class User {
   get profile() {
     return `
     # ${this.name} 
-    ## Account: ${this.premium === true ? 'Premium' : 'Basic'}
     ## Starred interests (${this.starredInterests.length})
     ${this.starredInterests.map(interest => interest.name).join(', ')}
     ## Tested interests (${this.testedInterests.length})
@@ -23,24 +54,30 @@ class User {
   }
 
   createInterest(name) {
-    return new Interest(name)
+    return Interest.create({ name })
   }
 
-  testInterest(interest) {
+  async testInterest(interest) {
     this.testedInterests.push(interest)
     interest.tested = true
+    await this.save()
   }
 
-  starInterest(interest) {
+  async starInterest(interest) {
     this.starredInterests.push(interest)
     interest.starred = true
+    await this.save()
+    await interest.save()
   }
 
-  createProject(name) {
-    const project = new Project(name)
-    this.projects.push(project)
+  async createProject(name) {
+    const project = await Project.create({ name })
+    this.projects.push(project) // error coming from this line
+    await this.save()
     return project
   }
 }
 
-module.exports = User
+userSchema.loadClass(User)
+userSchema.plugin(autopopulate)
+module.exports = mongoose.model('User', userSchema)

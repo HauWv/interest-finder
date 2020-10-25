@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 User: #{user.name} 
+  p Profile: #{user.profile}
+  h2 Projects: 
+
+  each project in user.projects
+    h3 #{project.name}
+    if project.interests.length == 0
+      p This project is empty.
+    else
+      p Interests assigned: #{project.interests.map(interest => interest.name).join(', ')}

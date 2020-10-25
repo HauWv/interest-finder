@@ -7,6 +7,15 @@ require('../models/interest')
 require('../models/project')
 require('../models/login')
 
+router.get('/', async (req, res) => {
+  const query = {}
+
+  if (req.query.name) {
+    query.name = req.query.name
+  }
+  res.send(await User.find(query))
+})
+
 async function main() {
   // sign up user
   const jill = await User.create({ name: 'jill', email: 'jill@coyotiv.com', password: 'mypassword' })

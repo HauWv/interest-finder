@@ -2,10 +2,27 @@ const mongoose = require('mongoose')
 const autopopulate = require('mongoose-autopopulate')
 
 const projectSchema = new mongoose.Schema({
-  name: String,
-  startDate: Date,
-  note: String,
-  interests: [],
+  name: {
+    type: String,
+    required: true,
+  },
+  startDate: {
+    type: Date,
+    unique: false,
+    // required: true,
+  },
+  note: {
+    type: String,
+    unique: false,
+    required: false,
+  },
+  interests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Interest',
+      autopopulate: true,
+    },
+  ],
 })
 class Project {
   set notes(newNote) {

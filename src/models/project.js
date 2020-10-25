@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
 
 const projectSchema = new mongoose.Schema({
   name: String,
@@ -18,4 +19,5 @@ class Project {
 }
 
 projectSchema.loadClass(Project)
+projectSchema.plugin(autopopulate)
 module.exports = mongoose.model('Project', projectSchema)

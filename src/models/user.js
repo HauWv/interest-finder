@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
 const Interest = require('./interest')
 const Project = require('./project')
 
@@ -22,18 +23,21 @@ const userSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Interest',
+      autopopulate: true,
     },
   ],
   starredInterests: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Interest',
+      autopopulate: true,
     },
   ],
   projects: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Project',
+      autopopulate: true,
     },
   ],
 })
@@ -74,4 +78,5 @@ class User {
 }
 
 userSchema.loadClass(User)
+userSchema.plugin(autopopulate)
 module.exports = mongoose.model('User', userSchema)

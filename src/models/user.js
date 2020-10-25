@@ -54,7 +54,7 @@ class User {
   }
 
   createInterest(name) {
-    return new Interest(name)
+    return Interest.create({ name })
   }
 
   async testInterest(interest) {

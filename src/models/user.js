@@ -70,9 +70,10 @@ class User {
     await interest.save()
   }
 
-  createProject(name) {
-    const project = new Project(name)
-    this.projects.push(project)
+  async createProject(name) {
+    const project = await Project.create({ name })
+    this.projects.push(project) // error coming from this line
+    await this.save()
     return project
   }
 }

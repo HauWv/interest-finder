@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
   if (req.query.name) {
     query.name = req.query.name
   }
+  // return res.send('Hello!')
   res.send(await User.find(query))
 })
 
@@ -22,10 +23,11 @@ router.get('/initialize', async (req, res) => {
   const steve = await User.create({ name: 'steve', email: 'steve@coyotiv.com', password: 'mypassword' })
 
   // create interests
-  const jillCoffee = await jill.createInterest('coffee')
+  const jillCoffee = await jill.createInterest('coffee') // this is awaiting the promise (from user.js) Without await this will be a promise not an interest
   const reginaTea = await regina.createInterest('tea')
   const steveHackers = await steve.createInterest('hackers')
   const jillChocolate = await jill.createInterest('chocolate')
+  // Promise.all - to execute in parrllel and resolve altogether. Its fine to do this because these dont depend on each other
   // ;[jillCoffee, reginaTea, jillChocolate, steveHackers].forEach(interest => interest.save())
 
   // test interests
@@ -63,8 +65,11 @@ router.get('/:userId', async (req, res) => {
 //   res.render('user', { title: 'Register' })
 // })
 
-// router.post('/', async (req, res) => {
-//   await User.create({ name: req.body.name, email: req.body.email, password: req.body.password })
-// })
+router.post('/', async (req, res) => {
+  const user = await User.create({ name: req.body.name, email: req.body.email, password: req.body.password })
+  res.send(user)
+})
+
+router.get('/signup')
 
 module.exports = router

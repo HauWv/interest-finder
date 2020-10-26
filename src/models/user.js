@@ -53,21 +53,21 @@ class User {
     `
   }
 
-  createInterest(name) {
-    return Interest.create({ name })
+  async createInterest(name) {
+    return Interest.create({ name }) // this returns a promise
   }
 
   async testInterest(interest) {
     this.testedInterests.push(interest)
     interest.tested = true
-    await this.save()
+    return this.save()
   }
 
   async starInterest(interest) {
     this.starredInterests.push(interest)
     interest.starred = true
-    await this.save()
     await interest.save()
+    await this.save()
   }
 
   async createProject(name) {

@@ -30,6 +30,7 @@
   "author": "Jill Kay <jillannkay@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "connect-livereload": "^0.6.1",
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.12.0",
@@ -39,6 +40,7 @@
     "eslint-plugin-react-hooks": "^4.0.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
+    "livereload": "^0.9.1",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.0.2"
   },

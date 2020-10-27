@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    image: marketing-project
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # - MONGODB_USERNAME=root
+      # - MONGODB_PASSWORD=Rpm096yVvOWMlyfB
+      # - MONGODB_DATABASE=first-database
+      # - MONGODB_REMOTE=1
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/marketing-project
+    ports:
+      - 3000:3000
+      - 35729:35729
+    volumes:
+      - ./src:/app/src
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017

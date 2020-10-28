@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    .nav-container.border
+        nav.navbar.sticky-top.navbar-expand-sm.navbar-light
+                    a.navbar-brand(href='#') Navbar
+                    button.navbar-toggler.ml-auto(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                        span.navbar-toggler-icon
+                    #navbarSupportedContent.collapse.navbar-collapse
+                        ul.navbar-nav.ml-auto
+                            li.nav-item.p-2
+                                a.nav-link(href='#') Home
+                            li.nav-item.p-2
+                                a.nav-link(href='#') Tools
+                            li.nav-item.p-2
+                                a.nav-link(href='#') Projects
+                            li.nav-item.p-2
+                                a.nav-link(href='#') About
+                            li.nav-item.p-2
+                                a.nav-link(href='#') Contact
+    .container.border
+        .row
+            .col
+                
+        .row
+            .col
+                form.p-5(method='POST' action='/signup')
+                    h4.mb-4.text-center Sign up
+                    input#defaultRegisterFormFirstName.form-control.mb-3(type='text' placeholder='Name')
+                    input#defaultRegisterFormEmail.form-control.mb-4(type='email' placeholder='E-mail')
+                    input#defaultRegisterFormPassword.form-control(type='password' placeholder='Password' aria-describedby='defaultRegisterFormPasswordHelpBlock')
+                    small#defaultRegisterFormPhoneHelpBlock.form-text.text-muted.mb-4 Min 8 characters 
+                    button.btn.btn-info.my-4.btn-block(type='submit') Sign up
+                    .text-center
+                        p
+                        | By clicking 
+                        em Sign up
+                        |  you agree to our 
+                        a(href='' target='_blank') terms of service
+                        |.

@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -9,6 +8,12 @@ h1 {
 
 a {
   color: #00b7ff;
+}
+
+/* --- nav --- */
+nav a {
+  font-weight: bold;
+  /* color: black; */
 }
 
 /* --- form --- */

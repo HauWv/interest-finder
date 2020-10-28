@@ -28,7 +28,6 @@ router.get('/initialize', async (req, res) => {
   const steveHackers = await steve.createInterest('hackers')
   const jillChocolate = await jill.createInterest('chocolate')
   // Promise.all - to execute in parrllel and resolve altogether. Its fine to do this because these dont depend on each other
-  // ;[jillCoffee, reginaTea, jillChocolate, steveHackers].forEach(interest => interest.save())
 
   // test interests
   await jill.testInterest(jillCoffee)
@@ -60,16 +59,6 @@ router.get('/:userId', async (req, res) => {
   else res.sendStatus(404)
 })
 
-/* GET register page */
-// router.get('/', (req, res) => {
-//   res.render('user', { title: 'Register' })
-// })
-
-router.post('/', async (req, res) => {
-  const user = await User.create({ name: req.body.name, email: req.body.email, password: req.body.password })
-  res.send(user)
-})
-
-router.get('/signup')
+// router.get('/signup')
 
 module.exports = router

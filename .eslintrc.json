@@ -10,6 +10,9 @@
     "prettier/unicorn",
     "prettier/vue"
   ],
+  "env": {
+    "jest/globals": true
+  },
   "rules": {
     "eqeqeq": "off",
     "class-methods-use-this": "off",

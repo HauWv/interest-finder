@@ -1,8 +1,9 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+<template lang="pug">
+  .home
+    img(alt="Vue logo" src="../assets/logo.png")
+    HelloWorld(msg="Welcome to Your Vue.js App")
+    div(v-for="user in users") {{ user.name }} has {{ user.projects.length }} projects
+    div(v-for="user in users") {{ user.name }} has {{ user.starredInterests.length }} starredInterests
 </template>
 
 <script>

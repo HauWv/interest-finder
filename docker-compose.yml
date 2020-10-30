@@ -24,6 +24,10 @@ services:
       # - MONGODB_DATABASE=first-database
       # - MONGODB_REMOTE=1
       - MONGODB_CONNECTION_STRING=mongodb://mongo/marketing-project
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=(Host(`marketing.localhost`) && PathPrefix(`/api`))"
+      - "traefik.http.routers.backend.entrypoints=web"
     ports:
       - 3000:3000
       - 35729:35729

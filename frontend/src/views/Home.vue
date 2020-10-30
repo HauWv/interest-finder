@@ -12,9 +12,19 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import axios from 'axios'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      users: []
+    }
+  },
+  async created() {
+    const usersRequest = await axios.get('/api/users')
+
+    this.users = usersRequest.data
   }
-};
+}
 </script>

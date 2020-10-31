@@ -1,22 +1,13 @@
 <script>
 // @ is an alias to /src
-import axios from 'axios'
-import UserCard from '@/components/user-card.vue' // @ means we are referencing the source directory.
+// import axios from 'axios'
+// import UserCard from '@/components/user-card.vue' // @ means we are referencing the source directory.
 
 export default {
   name: 'Home',
-  components: {
-    UserCard
-  },
+  components: {},
   data() {
-    return {
-      users: []
-    }
-  },
-  async created() {
-    const usersRequest = await axios.get('/api/users')
-
-    this.users = usersRequest.data
+    return {}
   }
 }
 </script>

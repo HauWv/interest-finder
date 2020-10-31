@@ -6,7 +6,9 @@ html
   #app
     #nav
       router-link(to="/") Home |&nbsp;
-      router-link(to="/about") About
+      router-link(to="/about") About |&nbsp;
+      router-link(to="/users") Users |&nbsp;
+      router-link(to="/signup") Sign Up
     router-view
 </template>
 

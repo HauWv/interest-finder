@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home.vue'
+import Users from '../views/users.vue'
 import SignUp from '../views/signup.vue'
 
 Vue.use(VueRouter)

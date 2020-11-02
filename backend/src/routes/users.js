@@ -55,7 +55,7 @@ router.get('/initialize', async (req, res) => {
 router.get('/:userId', async (req, res) => {
   const user = await User.findById(req.params.userId).populate('projects')
 
-  if (user) res.render('user', { user })
+  if (user) res.send(user)
   else res.sendStatus(404)
 })
 

@@ -7,9 +7,6 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Users',
   components: { Counter },
-  components: {
-    UserCard
-  },
   data() {
     return {
       users: []

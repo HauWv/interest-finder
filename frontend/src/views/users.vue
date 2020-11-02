@@ -5,6 +5,7 @@ import UserCard from '@/components/user-card.vue' // @ means we are referencing 
 
 export default {
   name: 'Users',
+  components: { Counter },
   components: {
     UserCard
   },
@@ -25,4 +26,5 @@ export default {
   .home
     h1 List of users
     user-card(v-for="user in users" :user="user") 
+    Counter
 </template>

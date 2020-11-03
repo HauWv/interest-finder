@@ -21,15 +21,15 @@ export default {
       .col
         .form-container.mx-5.px-5
           form.p-4
-            .form-group
+            .form-group.p-2
               label Keyword
               input#key-input.form-control(type='text' placeholder='' name='keyword')
-            .form-group
+            .form-group.p-2
               label Search Type
               select#search-type.form-control
                 option Ad Interest
                 option Associated Interests *
-            .form-group
+            .form-group.p-2
               label Language
               select#locale.form-control
                 option English

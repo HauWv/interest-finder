@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home.vue'
 import Users from '../views/users.vue'
+import Starred from '../views/starred.vue'
 import SignUp from '../views/signup.vue'
 
 Vue.use(VueRouter)
@@ -29,6 +30,11 @@ const routes = [
     path: '/users/:id',
     name: 'UserDetail',
     component: () => import(/* webpackChunkName: "about" */ '../views/user-detail.vue')
+  },
+  {
+    path: '/starred',
+    name: 'Starred',
+    component: Starred
   },
   {
     path: '/signup',

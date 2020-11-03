@@ -1,10 +1,24 @@
 <template lang="pug">
   #app
     #nav
-      router-link(to="/") Home |&nbsp;
-      router-link(to="/about") About |&nbsp;
-      router-link(to="/users") Users |&nbsp;
-      router-link(to="/signup") Sign Up
+        nav.navbar.sticky-top.navbar-expand-sm.navbar-light.mx-4
+            a.navbar-brand(href='#') Logo
+            button.navbar-toggler.ml-auto(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.ml-auto
+                    li.nav-item.p-2
+                        router-link.nav-link(to="/") Home
+                    li.nav-item.p-2
+                        router-link.nav-link(to="/about") About
+                    li.nav-item.p-2
+                        router-link.nav-link(to="/users") Users
+                    li.nav-item.p-2
+                        router-link.nav-link(to="/projects") Projects
+                    li.nav-item.p-2
+                        router-link.nav-link(to="/starred") Starred
+                    li.nav-item.p-2
+                        router-link.nav-link(to="/signup") Sign Up
     router-view
 </template>
 

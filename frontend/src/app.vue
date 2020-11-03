@@ -1,8 +1,4 @@
 <template lang="pug">
-html
-  head
-    link(rel='stylesheet', href='/stylesheets/normalize.css')
-    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
   #app
     #nav
       router-link(to="/") Home |&nbsp;
@@ -13,6 +9,9 @@ html
 </template>
 
 <style lang="scss">
+// @import '@/assets/theme.scss';
+@import 'bootstrap/scss/bootstrap.scss';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

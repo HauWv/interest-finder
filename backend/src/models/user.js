@@ -70,6 +70,13 @@ class User {
     await this.save()
   }
 
+  async unstarInterest(interest) {
+    this.starredInterests.splice(this.starredInterests.indexOf(interest), 1)
+    interest.starred = false
+    await interest.save()
+    await this.save()
+  }
+
   async createProject(name) {
     const project = await Project.create({ name })
     this.projects.push(project) // error coming from this line

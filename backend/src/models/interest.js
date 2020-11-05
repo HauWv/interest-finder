@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const interestSchema = new mongoose.Schema({
   name: {
     type: String,
-    unique: true,
+    required: true,
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

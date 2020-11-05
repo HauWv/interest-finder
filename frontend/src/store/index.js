@@ -33,7 +33,6 @@ export default new Vuex.Store({
     },
 
     async toggleStarred(store, interest) {
-      // make this togglestarred
       await axios.patch(`/api/interests/${interest.name}`, {
         starred: !interest.starred
       })

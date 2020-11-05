@@ -70,11 +70,17 @@ class User {
     return interest
   }
 
-  async unstarInterest(interest) {
-    this.starredInterests.splice(this.starredInterests.indexOf(interest), 1)
+  async unstarInterest(interestName) {
+    let interest = this.interests.find(interest => interest.name == interestName)
+
+    if (!interest) {
+      return false
+    }
+
     interest.starred = false
-    await interest.save()
+    interest.save()
     await this.save()
+    return interest
   }
 
   async createProject(name) {

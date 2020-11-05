@@ -4,6 +4,12 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
+let baseUrl = new URL(
+  'https://graph.facebook.com/search?limit=500&access_token=677916593037704|gvX9a7sygGJ3nMNvSvr5WalhCCM'
+)
+// get access to URLSearchParams object
+let params = baseUrl.searchParams
+
 export default new Vuex.Store({
   state: {
     count: 0

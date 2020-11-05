@@ -40,6 +40,17 @@ export default new Vuex.Store({
         tested: true
       })
     },
+
+    async fetchStarredInterest(store, id) {
+      const interestRequest = await axios.get(`/api/interests/${id}`)
+      return interestRequest.data
+    },
+    async fetchStarredInterests() {
+      const interestsRequest = await axios.get('/api/interests')
+      return interestsRequest.data
+    },
+    async fetchInterests() {
+      // do api call here
     }
   },
   modules: {}

@@ -9,6 +9,7 @@ let baseUrl = new URL(
 )
 // get access to URLSearchParams object
 let params = baseUrl.searchParams
+let completeUrl
 
 export default new Vuex.Store({
   state: {
@@ -54,8 +55,15 @@ export default new Vuex.Store({
       const interestsRequest = await axios.get('/api/interests')
       return interestsRequest.data
     },
-    async fetchInterests() {
-      // do api call here
+
+    async setUrlParams(store, keyword, searchType, locale) {
+      console.log(keyword)
+      params.set('q', keyword) // this one works
+      params.set('type', searchType) // why is this and locale undefined?
+      params.set('locale', locale)
+      completeUrl = baseUrl.toString()
+      // console.log(completeUrl)
+    },
     }
   },
   modules: {}

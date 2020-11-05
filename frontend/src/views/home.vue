@@ -7,7 +7,52 @@ export default {
   name: 'Home',
   components: {},
   data() {
-    return {}
+    return {
+      keyword: '',
+      searchType: '',
+      locale: '',
+      results: []
+    }
+  },
+
+  methods: {
+    getKeyword: function() {
+      this.keyword = this.keyword.charAt(0).toUpperCase() + this.keyword.slice(1)
+      console.log(this.keyword)
+    },
+
+    getSearchType: function() {
+      let formattedType
+
+      if (this.searchType == 'Ad Interest') {
+        formattedType = 'adinterest'
+      } else {
+        formattedType = 'adinterestsuggestion'
+      }
+
+      this.searchType = formattedType
+      console.log(formattedType)
+    },
+
+    getLocale: function() {
+      let formattedLocale
+
+      if (this.locale == 'English') {
+        formattedLocale = 'en_US'
+      } else if (this.locale == 'German') {
+        formattedLocale = 'de_DE'
+      } else {
+        formattedLocale = 'es_ES'
+      }
+
+      this.locale = formattedLocale
+      console.log(formattedLocale)
+    },
+    getInputs: function() {
+      this.getKeyword()
+      this.getSearchType()
+      this.getLocale()
+    }
   }
 }
 </script>
@@ -20,18 +65,19 @@ export default {
     .row
       .col
         .form-container.mx-5.px-5
-          form.p-4
+          form(@submit.prevent='getInputs').p-4
             .form-group.p-2
               label Keyword
-              input#key-input.form-control(type='text' placeholder='' name='keyword')
+              input#keyword.form-control(v-model='keyword' type='text' placeholder='' name='keyword')
+              p Keyword: {{ keyword }}
             .form-group.p-2
               label Search Type
-              select#search-type.form-control
+              select#search-type.form-control(v-model='searchType')
                 option Ad Interest
                 option Associated Interests *
             .form-group.p-2
               label Language
-              select#locale.form-control
+              select#locale.form-control(v-model='locale')
                 option English
                 option German
                 option Spanish

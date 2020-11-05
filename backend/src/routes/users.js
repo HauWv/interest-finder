@@ -22,15 +22,15 @@ router.get('/initialize', async (req, res) => {
   const regina = await User.create({ name: 'regina', email: 'regina@coyotiv.com', password: 'mypassword' })
   const steve = await User.create({ name: 'steve', email: 'steve@coyotiv.com', password: 'mypassword' })
 
-
   // test interests
-  await jill.testInterest(jillCoffee)
-  await jill.testInterest(jillChocolate)
-  await steve.testInterest(steveHackers)
+  await jill.testInterest('coffee')
+  const jillChocolate = await jill.testInterest('chocolate')
+  await steve.testInterest('hackers')
 
   // star interests
-  await regina.starInterest(reginaTea)
-  await jill.starInterest(jillCoffee)
+  const reginaTea = await regina.starInterest('tea')
+  await jill.starInterest('coffee')
+  await jill.starInterest('chocolate')
 
   // create projects
   const jillProject = await jill.createProject('jill project') // error from this line

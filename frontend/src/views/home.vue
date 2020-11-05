@@ -47,12 +47,12 @@ export default {
 
       this.locale = formattedLocale
       console.log(formattedLocale)
-    },
-    getInputs: function() {
-      this.getKeyword()
-      this.getSearchType()
-      this.getLocale()
     }
+    // submitFormInputs: function() {
+    //   this.getKeyword()
+    //   this.getSearchType()
+    //   this.getLocale()
+    // }
   }
 }
 </script>
@@ -65,7 +65,7 @@ export default {
     .row
       .col
         .form-container.mx-5.px-5
-          form(@submit.prevent='getInputs').p-4
+          form(@submit.prevent='getKeyword(); getSearchType(); getLocale(); setUrlParams(keyword, searchType, locale); callApi()').p-4
             .form-group.p-2
               label Keyword
               input#keyword.form-control(v-model='keyword' type='text' placeholder='' name='keyword')

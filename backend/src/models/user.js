@@ -56,11 +56,18 @@ class User {
     return this.save()
   }
 
-  async starInterest(interest) {
-    this.starredInterests.push(interest)
+  async starInterest(interestName) {
+    let interest = this.interests.find(interest => interest.name == interestName)
+
+    if (!interest) {
+      interest = await Interest.create({ name: interestName, owner: this })
+      this.interests.push(interest)
+    }
+
     interest.starred = true
-    await interest.save()
+    interest.save()
     await this.save()
+    return interest
   }
 
   async unstarInterest(interest) {

@@ -64,7 +64,18 @@ export default new Vuex.Store({
       completeUrl = baseUrl.toString()
       // console.log(completeUrl)
     },
+
+    async callApi() {
+      await fetch(completeUrl, {
+        method: 'GET'
+      }).then(response => {
+        console.log(response)
+      })
     }
+
+    // async callApi() {
+    //   await axios.get(completeUrl).then(response => console.log(response))
+    // }
   },
   modules: {}
 })

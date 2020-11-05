@@ -34,6 +34,12 @@ export default new Vuex.Store({
 
       interest.starred = !interest.starred
     },
+
+    async testInterest(store, name) {
+      await axios.patch(`/api/interests/${name}`, {
+        tested: true
+      })
+    },
     }
   },
   modules: {}

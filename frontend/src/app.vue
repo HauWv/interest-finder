@@ -16,7 +16,7 @@
                     li.nav-item.p-2
                         router-link.nav-link(to="/projects") Projects
                     li.nav-item.p-2
-                        router-link.nav-link(to="/starred") Starred
+                        router-link.nav-link(to="/interest-list") Starred
                     li.nav-item.p-2
                         router-link.nav-link(to="/signup") Sign Up
     router-view

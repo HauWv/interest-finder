@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home.vue'
 import Users from '../views/users.vue'
-import Starred from '../views/starred.vue'
+import Starred from '../views/interest-list.vue'
 import Projects from '../views/projects.vue'
 import SignUp from '../views/signup.vue'
 
@@ -33,7 +33,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/user-detail.vue')
   },
   {
-    path: '/starred',
+    path: '/interest-list',
     name: 'Starred',
     component: Starred
   },

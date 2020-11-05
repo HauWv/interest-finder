@@ -22,12 +22,6 @@ router.get('/initialize', async (req, res) => {
   const regina = await User.create({ name: 'regina', email: 'regina@coyotiv.com', password: 'mypassword' })
   const steve = await User.create({ name: 'steve', email: 'steve@coyotiv.com', password: 'mypassword' })
 
-  // create interests
-  const jillCoffee = await jill.createInterest('coffee') // this is awaiting the promise (from user.js) Without await this will be a promise not an interest
-  const reginaTea = await regina.createInterest('tea')
-  const steveHackers = await steve.createInterest('hackers')
-  const jillChocolate = await jill.createInterest('chocolate')
-  // Promise.all - to execute in parrllel and resolve altogether. Its fine to do this because these dont depend on each other
 
   // test interests
   await jill.testInterest(jillCoffee)

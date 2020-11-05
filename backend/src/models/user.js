@@ -50,10 +50,18 @@ class User {
     return Interest.create({ name }) // this returns a promise
   }
 
-  async testInterest(interest) {
-    this.testedInterests.push(interest)
+  async testInterest(interestName) {
+    let interest = this.interests.find(interest => interest.name == interestName)
+
+    if (!interest) {
+      interest = await Interest.create({ name: interestName, owner: this })
+      this.interests.push(interest)
+    }
+
     interest.tested = true
-    return this.save()
+    interest.save()
+    await this.save()
+    return interest
   }
 
   async starInterest(interestName) {

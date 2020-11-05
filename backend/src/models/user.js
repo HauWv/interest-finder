@@ -19,14 +19,7 @@ const userSchema = new mongoose.Schema({
     // unique: true,
     required: true,
   },
-  testedInterests: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Interest',
-      autopopulate: true,
-    },
-  ],
-  starredInterests: [
+  interests: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Interest',

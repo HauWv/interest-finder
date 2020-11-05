@@ -24,6 +24,16 @@ export default new Vuex.Store({
     async fetchUsers() {
       const usersRequest = await axios.get('/api/users')
       return usersRequest.data
+    },
+
+    async toggleStarred(store, interest) {
+      // make this togglestarred
+      await axios.patch(`/api/interests/${interest.name}`, {
+        starred: !interest.starred
+      })
+
+      interest.starred = !interest.starred
+    },
     }
   },
   modules: {}

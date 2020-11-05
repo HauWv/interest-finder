@@ -15,9 +15,6 @@ export default {
     console.log('created')
     this.interests = await this.fetchStarredInterests()
   },
-  async beforeCreate() {
-    console.log('before create')
-  },
 
   methods: {
     ...mapActions(['fetchStarredInterests', 'toggleStarred'])

@@ -9,6 +9,8 @@ require('./database-connection')
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const signupRouter = require('./routes/signup')
+const interestsRouter = require('./routes/interests')
+const User = require('./models/user')
 
 const app = express()
 
@@ -31,9 +33,15 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(async (req, res, next) => {
+  req.user = await User.findOne({ name: 'jill' })
+  next()
+})
+
 app.use('/api/', indexRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/signup', signupRouter)
+app.use('/api/interests', interestsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

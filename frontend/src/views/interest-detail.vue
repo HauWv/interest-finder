@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template lang="pug">
-  div
+  .box
     h1 This is an interest detail
     InterestCard(:interest="interest" v-if="interest")
 </template>

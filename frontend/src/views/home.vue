@@ -111,3 +111,12 @@ export default {
             span.mr-5 {{ result.name }} 
             span {{ formatAudienceSize(result.audience_size) }}
 </template>
+
+<style scoped>
+.result-card {
+  padding: 12px;
+}
+.result-card:hover {
+  background-color: #ededed;
+}
+</style>

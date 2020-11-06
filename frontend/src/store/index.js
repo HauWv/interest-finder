@@ -56,8 +56,8 @@ export default new Vuex.Store({
       return interestsRequest.data
     },
 
-    async setUrlParams(store, keyword, searchType, locale) {
-      console.log(keyword)
+    async setUrlParams({ store, dispatch }, { keyword, searchType, locale }) {
+      // console.log(keyword, searchType, locale)
       params.set('q', keyword) // this one works
       params.set('type', searchType) // why is this and locale undefined?
       params.set('locale', locale)
@@ -65,11 +65,13 @@ export default new Vuex.Store({
       // console.log(completeUrl)
     },
 
-    async callApi() {
-      await fetch(completeUrl, {
+    async getInterests({ store, dispatch }, form) {
+      // setUrlParams(form)
+      await dispatch('setUrlParams', form)
+      return await fetch(completeUrl, {
         method: 'GET'
       }).then(response => {
-        console.log(response)
+        return response
       })
     }
 

@@ -12,7 +12,7 @@ export default {
       keyword: '',
       searchType: '',
       locale: '',
-      results: []
+      results: null
     }
   },
   computed: {
@@ -54,15 +54,14 @@ export default {
     ...mapActions(['getInterests']),
 
     async handleSubmit() {
-      const res = await this.getInterests({
+      const response = await this.getInterests({
         keyword: this.formattedKeyword,
         searchType: this.formattedSearchType,
         locale: this.formattedLocale
       })
-      console.log(res)
+      this.results = response.data
+      console.log(this.results)
     }
-
-    // setUrlParams(keyword, searchType, locale); callApi()
   }
 }
 </script>

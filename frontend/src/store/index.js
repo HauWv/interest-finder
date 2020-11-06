@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 let baseUrl = new URL(
   'https://graph.facebook.com/search?limit=500&access_token=677916593037704|gvX9a7sygGJ3nMNvSvr5WalhCCM'
+  // "https://graph.facebook.com/search?limit=500&access…stion&locale=en_US&interest_list=%5B%22Yoga%22%5D"
 )
 // get access to URLSearchParams object
 let params = baseUrl.searchParams
@@ -57,8 +58,6 @@ export default new Vuex.Store({
     },
 
     async setUrlParams({ store, dispatch }, { keyword, searchType, locale }) {
-      // console.log(keyword, searchType, locale)
-
       if (searchType == 'adinterestsuggestion') {
         params.set('interest_list', `["${keyword}"]`)
       } else {
@@ -68,21 +67,24 @@ export default new Vuex.Store({
       params.set('type', searchType)
       params.set('locale', locale)
       completeUrl = baseUrl.toString()
-      // console.log(completeUrl)
+      console.log(completeUrl)
     },
 
     async getInterests({ store, dispatch }, form) {
-      // setUrlParams(form)
       await dispatch('setUrlParams', form)
-      return await fetch(completeUrl, {
-        method: 'GET'
-      }).then(response => {
-        return response
-      })
+      const response = await axios.get(completeUrl)
+      // console.log(response)
+      return response
     }
 
-    // async callApi() {
-    //   await axios.get(completeUrl).then(response => console.log(response))
+    // async getInterests({ store, dispatch }, form) {
+    //   // setUrlParams(form)
+    //   await dispatch('setUrlParams', form)
+    //   return await fetch(completeUrl, {
+    //     method: 'GET'
+    //   }).then(response => {
+    //     return response
+    //   })
     // }
   },
   modules: {}

@@ -15,47 +15,54 @@ export default {
       results: []
     }
   },
-
-  methods: {
-    ...mapActions(['setUrlParams', 'callApi']),
-
-    getKeyword: function() {
-      this.keyword = this.keyword.charAt(0).toUpperCase() + this.keyword.slice(1)
-      console.log(this.keyword)
+  computed: {
+    formattedKeyword() {
+      // console.log(this.keyword)
+      return this.keyword.charAt(0).toUpperCase() + this.keyword.slice(1)
     },
 
-    getSearchType: function() {
+    formattedSearchType() {
       let formattedType
 
-      if (this.searchType == 'Ad Interest') {
-        formattedType = 'adinterest'
-      } else {
+      if (this.searchType == 'Associated Interests') {
         formattedType = 'adinterestsuggestion'
+      } else {
+        formattedType = 'adinterest'
       }
 
-      this.searchType = formattedType
-      console.log(formattedType)
+      // console.log(formattedType)
+      return formattedType
     },
 
-    getLocale: function() {
+    formattedLocale() {
       let formattedLocale
 
-      if (this.locale == 'English') {
-        formattedLocale = 'en_US'
+      if (this.locale == 'Spanish') {
+        formattedLocale = 'es_ES'
       } else if (this.locale == 'German') {
         formattedLocale = 'de_DE'
       } else {
-        formattedLocale = 'es_ES'
+        formattedLocale = 'en_US'
       }
 
-      this.locale = formattedLocale
-      console.log(formattedLocale)
+      // console.log(formattedLocale)
+      return formattedLocale
     }
-    // submitFormInputs: function() {
-    //   this.getKeyword()
-    //   this.getSearchType()
-    //   this.getLocale()
-    // }
+  },
+
+  methods: {
+    ...mapActions(['getInterests']),
+
+    async handleSubmit() {
+      const res = await this.getInterests({
+        keyword: this.formattedKeyword,
+        searchType: this.formattedSearchType,
+        locale: this.formattedLocale
+      })
+      console.log(res)
+    }
+
+    // setUrlParams(keyword, searchType, locale); callApi()
   }
 }
 </script>
@@ -68,16 +75,15 @@ export default {
     .row
       .col
         .form-container.mx-5.px-5
-          form(@submit.prevent='getKeyword(); getSearchType(); getLocale(); setUrlParams(keyword, searchType, locale); callApi()').p-4
+          form(@submit.prevent='handleSubmit').p-4
             .form-group.p-2
               label Keyword
               input#keyword.form-control(v-model='keyword' type='text' placeholder='' name='keyword')
-              p Keyword: {{ keyword }}
             .form-group.p-2
               label Search Type
               select#search-type.form-control(v-model='searchType')
                 option Ad Interest
-                option Associated Interests *
+                option Associated Interests
             .form-group.p-2
               label Language
               select#locale.form-control(v-model='locale')

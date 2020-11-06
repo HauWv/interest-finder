@@ -25,7 +25,7 @@ export default {
 <template lang="pug">
   .box
     h1 Starred Interests
-    div(v-for="interest in interests")
+    div(v-for="interest in interests" :interest="interest")
       router-link(:to="`/interest-list/${interest._id}`") {{ interest.name }}
       button(@click="toggleStarred(interest)") star / unstar
       span {{ interest.starred }}

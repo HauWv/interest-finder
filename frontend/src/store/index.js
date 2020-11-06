@@ -37,7 +37,7 @@ export default new Vuex.Store({
     async toggleStarred(store, interest) {
       await axios.patch(`/api/interests/${interest.name}`, {
         starred: !interest.starred
-      })
+      }) // does this only work if the interest is already created? Can I create a new one like this?
 
       interest.starred = !interest.starred
     },
@@ -76,16 +76,6 @@ export default new Vuex.Store({
       // console.log(response)
       return response
     }
-
-    // async getInterests({ store, dispatch }, form) {
-    //   // setUrlParams(form)
-    //   await dispatch('setUrlParams', form)
-    //   return await fetch(completeUrl, {
-    //     method: 'GET'
-    //   }).then(response => {
-    //     return response
-    //   })
-    // }
   },
   modules: {}
 })

@@ -58,8 +58,14 @@ export default new Vuex.Store({
 
     async setUrlParams({ store, dispatch }, { keyword, searchType, locale }) {
       // console.log(keyword, searchType, locale)
-      params.set('q', keyword) // this one works
-      params.set('type', searchType) // why is this and locale undefined?
+
+      if (searchType == 'adinterestsuggestion') {
+        params.set('interest_list', `["${keyword}"]`)
+      } else {
+        params.set('q', keyword)
+      }
+
+      params.set('type', searchType)
       params.set('locale', locale)
       completeUrl = baseUrl.toString()
       // console.log(completeUrl)

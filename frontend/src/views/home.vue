@@ -12,7 +12,7 @@ export default {
       keyword: '',
       searchType: '',
       locale: '',
-      results: null
+      response: null
     }
   },
   computed: {
@@ -44,7 +44,6 @@ export default {
       } else {
         formattedLocale = 'en_US'
       }
-
       // console.log(formattedLocale)
       return formattedLocale
     }
@@ -53,14 +52,18 @@ export default {
   methods: {
     ...mapActions(['getInterests']),
 
+    formatAudienceSize(num) {
+      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    },
+
     async handleSubmit() {
-      const response = await this.getInterests({
+      const res = await this.getInterests({
         keyword: this.formattedKeyword,
         searchType: this.formattedSearchType,
         locale: this.formattedLocale
       })
-      this.results = response.data
-      console.log(this.results)
+      this.response = res.data.data
+      console.log(this.response)
     }
   }
 }
@@ -98,10 +101,13 @@ export default {
               |  may not return any results.
     .row
       .col.p-4.border-bottom
-        p.result-heading.ml-2 Interest
+        p.result-heading.ml-5 Interest
       .col.p-4.text-right.border-bottom
-        p.result-heading Audience Size
+        p.result-heading.mr-5 Audience Size
     .row
       .col
-        #results
+        #results.mx-5(v-for="result in response")
+          .result-card.d-flex.justify-content-between
+            span.mr-5 {{ result.name }} 
+            span {{ formatAudienceSize(result.audience_size) }}
 </template>

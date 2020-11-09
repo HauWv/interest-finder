@@ -25,6 +25,15 @@ export default new Vuex.Store({
     incrementCount(store) {
       store.commit('incrementCount')
     },
+
+    async signUp(store, user) {
+      await axios.post(`/api/signup`, {
+        name: user.name,
+        email: user.email,
+        password: user.password
+      })
+    },
+
     async fetchUser(store, id) {
       const userRequest = await axios.get(`/api/users/${id}`)
       return userRequest.data

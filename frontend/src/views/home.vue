@@ -77,7 +77,7 @@ export default {
     .row
       .col
         .form-container.mx-5.px-5
-          form(@submit.prevent='handleSubmit').p-4
+          form.p-4(@submit.prevent='handleSubmit')
             .form-group.p-2
               label Keyword
               input#keyword.form-control(v-model='keyword' type='text' placeholder='' name='keyword')
@@ -108,8 +108,7 @@ export default {
       .col
         #results.mx-5(v-for="result in response")
           .result-card.d-flex.justify-content-between
-            span(@click="toggleStarred(result)").mr-5.result-name {{ result.name }}
-            //- span {{ result.starred }}
+            span.result-name(@click="toggleStarred(result)") {{ result.name }} {{result.starred}}
             span {{ formatAudienceSize(result.audience_size) }}
 </template>
 

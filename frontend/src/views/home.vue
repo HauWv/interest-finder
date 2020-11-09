@@ -9,12 +9,19 @@ export default {
   components: {},
   data() {
     return {
+      interests: [],
       keyword: '',
       searchType: '',
       locale: '',
       response: null
     }
   },
+
+  async created() {
+    this.interests = await this.fetchStarredInterests()
+    console.log(this.interests)
+  },
+
   computed: {
     formattedKeyword() {
       // console.log(this.keyword)
@@ -50,7 +57,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getInterests', 'toggleStarred']),
+    ...mapActions(['getInterests', 'toggleStarred', 'fetchStarredInterests']),
 
     formatAudienceSize(num) {
       return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')

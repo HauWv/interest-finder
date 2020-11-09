@@ -1,11 +1,17 @@
 <script>
 // import axios from 'axios'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'SignUp',
   components: {},
   data() {
-    return {}
+    return {
+      user: {}
+    }
+  },
+  methods: {
+    ...mapActions(['signUp'])
   }
 }
 </script>
@@ -14,11 +20,11 @@ export default {
     .container.border
         .row
             .col
-                form.p-5(method='POST' action='/signup')
+                form.p-5(@submit.prevent='signUp(user)')
                     h4.mb-4.text-center Sign up
-                    input#defaultRegisterFormFirstName.form-control.mb-3(type='text' name='name' placeholder='Name')
-                    input#defaultRegisterFormEmail.form-control.mb-4(type='email' name='email' placeholder='E-mail')
-                    input#defaultRegisterFormPassword.form-control(type='password' name='password' placeholder='Password' aria-describedby='defaultRegisterFormPasswordHelpBlock')
+                    input#defaultRegisterFormFirstName.form-control.mb-3(v-model='user.name' type='text' name='name' placeholder='Name')
+                    input#defaultRegisterFormEmail.form-control.mb-4(v-model='user.email' type='email' name='email' placeholder='E-mail')
+                    input#defaultRegisterFormPassword.form-control(v-model='user.password' type='password' name='password' placeholder='Password' aria-describedby='defaultRegisterFormPasswordHelpBlock')
                     small#defaultRegisterFormPhoneHelpBlock.form-text.text-muted.mb-4 Min 8 characters 
                     button.btn.btn-info.my-4.btn-block(type='submit') Sign up
                     .text-center

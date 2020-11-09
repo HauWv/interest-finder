@@ -63,7 +63,7 @@ export default {
         locale: this.formattedLocale
       })
       this.response = res.data.data
-      console.log(this.response)
+      // console.log(this.response)
     }
   }
 }
@@ -108,7 +108,8 @@ export default {
       .col
         #results.mx-5(v-for="result in response")
           .result-card.d-flex.justify-content-between
-            span.mr-5 {{ result.name }} 
+            span(@click="toggleStarred(result)").mr-5.result-name {{ result.name }}
+            //- span {{ result.starred }}
             span {{ formatAudienceSize(result.audience_size) }}
 </template>
 
@@ -118,5 +119,9 @@ export default {
 }
 .result-card:hover {
   background-color: #ededed;
+}
+
+.result-name {
+  cursor: pointer;
 }
 </style>

@@ -19,8 +19,7 @@
                         router-link.nav-link(to="/interest-list") Starred
                     li.nav-item.p-2
                         router-link.nav-link(to="/signup") Sign Up
-    keep-alive
-      router-view
+    router-view
 </template>
 
 <style lang="scss">

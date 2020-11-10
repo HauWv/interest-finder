@@ -106,7 +106,7 @@ export default {
       .col
         #results.mx-5(v-for="result in response")
           .result-card.d-flex.justify-content-between
-            span.result-name(@click="handleStar(result)") {{ result.name }} {{result.starred}}
+            span.result-name(@click="handleStar(result)") {{ result.name }} {{result.starred ? '*' : ''}}
             span {{ formatAudienceSize(result.audience_size) }}
 </template>
 

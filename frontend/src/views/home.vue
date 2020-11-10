@@ -1,7 +1,5 @@
 <script>
 // @ is an alias to /src
-// import axios from 'axios'
-// import UserCard from '@/components/user-card.vue' // @ means we are referencing the source directory.
 import { mapActions, mapState } from 'vuex'
 
 export default {
@@ -12,7 +10,6 @@ export default {
       keyword: '',
       searchType: '',
       locale: ''
-      // response: null
     }
   },
 
@@ -32,7 +29,6 @@ export default {
         formattedType = 'adinterest'
       }
 
-      // console.log(formattedType)
       return formattedType
     },
 
@@ -46,7 +42,6 @@ export default {
       } else {
         formattedLocale = 'en_US'
       }
-      // console.log(formattedLocale)
       return formattedLocale
     }
   },
@@ -64,12 +59,9 @@ export default {
         searchType: this.formattedSearchType,
         locale: this.formattedLocale
       })
-      // this.response = res.data.data
-      // console.log(this.response)
     },
     async handleStar(interest) {
       await this.toggleStarred(interest)
-      // interest.starred = !interest.starred
     }
   }
 }

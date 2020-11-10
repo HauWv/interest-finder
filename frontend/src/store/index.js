@@ -15,16 +15,33 @@ let completeUrl
 
 export default new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    response: []
   },
   mutations: {
     incrementCount(state) {
       state.count++
+    },
+
+    getInterests(state, response) {
+      state.response = response
     }
   },
   actions: {
     incrementCount(store) {
       store.commit('incrementCount')
+    },
+
+    async getInterests({ commit, dispatch }, form) {
+      await dispatch('setUrlParams', form)
+      const response = await axios.get(completeUrl)
+      const interests = await dispatch('fetchStarredInterests')
+
+      response.data.data.forEach(result => {
+        result.starred = interests.some(interest => interest.name == result.name)
+      })
+
+      commit('getInterests', response.data.data)
     },
 
     async signUp(store, user) {
@@ -47,7 +64,7 @@ export default new Vuex.Store({
     async toggleStarred(store, interest) {
       await axios.patch(`/api/interests/${interest.name}`, {
         starred: !interest.starred
-      }) // does this only work if the interest is already created? Can I create a new one like this?
+      })
 
       interest.starred = !interest.starred
     },
@@ -78,13 +95,6 @@ export default new Vuex.Store({
       params.set('locale', locale)
       completeUrl = baseUrl.toString()
       console.log(completeUrl)
-    },
-
-    async getInterests({ store, dispatch }, form) {
-      await dispatch('setUrlParams', form)
-      const response = await axios.get(completeUrl)
-      // console.log(response)
-      return response
     }
   },
   modules: {}

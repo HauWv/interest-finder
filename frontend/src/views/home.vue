@@ -2,29 +2,24 @@
 // @ is an alias to /src
 // import axios from 'axios'
 // import UserCard from '@/components/user-card.vue' // @ means we are referencing the source directory.
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Home',
   components: {},
   data() {
     return {
-      interests: [],
       keyword: '',
       searchType: '',
-      locale: '',
-      response: null
+      locale: ''
+      // response: null
     }
   },
 
-  async created() {
-    this.interests = await this.fetchStarredInterests()
-    console.log(this.interests)
-  },
-
   computed: {
+    ...mapState(['response']),
+
     formattedKeyword() {
-      // console.log(this.keyword)
       return this.keyword.charAt(0).toUpperCase() + this.keyword.slice(1)
     },
 
@@ -57,20 +52,24 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getInterests', 'toggleStarred', 'fetchStarredInterests']),
+    ...mapActions(['getInterests', 'toggleStarred']),
 
     formatAudienceSize(num) {
       return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     },
 
     async handleSubmit() {
-      const res = await this.getInterests({
+      await this.getInterests({
         keyword: this.formattedKeyword,
         searchType: this.formattedSearchType,
         locale: this.formattedLocale
       })
-      this.response = res.data.data
+      // this.response = res.data.data
       // console.log(this.response)
+    },
+    async handleStar(interest) {
+      await this.toggleStarred(interest)
+      // interest.starred = !interest.starred
     }
   }
 }
@@ -96,7 +95,7 @@ export default {
             .form-group.p-2
               label Language
               select#locale.form-control(v-model='locale')
-                option English
+                option(selected='selected') English
                 option German
                 option Spanish
             .btn-container.d-flex.justify-content-center
@@ -115,7 +114,7 @@ export default {
       .col
         #results.mx-5(v-for="result in response")
           .result-card.d-flex.justify-content-between
-            span.result-name(@click="toggleStarred(result)") {{ result.name }} {{result.starred}}
+            span.result-name(@click="handleStar(result)") {{ result.name }} {{result.starred}}
             span {{ formatAudienceSize(result.audience_size) }}
 </template>
 

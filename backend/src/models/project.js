@@ -1,15 +1,19 @@
 const mongoose = require('mongoose')
 const autopopulate = require('mongoose-autopopulate')
+const Interest = require('./interest')
 
 const projectSchema = new mongoose.Schema({
   name: {
     type: String,
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
   startDate: {
     type: Date,
     unique: false,
-    // required: true,
   },
   note: {
     type: String,

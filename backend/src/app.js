@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const signupRouter = require('./routes/signup')
 const interestsRouter = require('./routes/interests')
+const projectsRouter = require('./routes/projects')
 const User = require('./models/user')
 
 const app = express()
@@ -42,6 +43,7 @@ app.use('/api/', indexRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/signup', signupRouter)
 app.use('/api/interests', interestsRouter)
+app.use('/api/projects', projectsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

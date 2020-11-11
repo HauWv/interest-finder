@@ -7,7 +7,6 @@ Vue.use(Vuex)
 
 let baseUrl = new URL(
   'https://graph.facebook.com/search?limit=500&access_token=***REMOVED***'
-  // "https://graph.facebook.com/search?limit=500&access…stion&locale=en_US&interest_list=%5B%22Yoga%22%5D"
 )
 // get access to URLSearchParams object
 let params = baseUrl.searchParams
@@ -82,6 +81,17 @@ export default new Vuex.Store({
     async fetchStarredInterests() {
       const interestsRequest = await axios.get('/api/interests')
       return interestsRequest.data
+    },
+
+    // async fetchProject(store, id) {
+    //   const projectRequest = await axios.get(`/api/projects/${id}`)
+    //   return projectRequest.data
+    // },
+
+    async fetchProjects() {
+      const projectsRequest = await axios.get('/api/projects')
+      console.log(projectsRequest.data)
+      return projectsRequest.data
     },
 
     async setUrlParams({ store, dispatch }, { keyword, searchType, locale }) {

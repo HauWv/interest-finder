@@ -1,3 +1,22 @@
+<script>
+import { mapActions } from 'vuex'
+import axios from 'axios'
+
+export default {
+  name: 'App',
+  async created() {
+    console.log((await axios.get('/api/account/session')).data)
+  }
+  // methods: {
+  //   ...mapActions(['logout']),
+  //   async doLogout() {
+  //     await this.logout()
+  //     this.$router.push('/login')
+  //   }
+  // }
+}
+</script>
+
 <template lang="pug">
   #app
     #nav

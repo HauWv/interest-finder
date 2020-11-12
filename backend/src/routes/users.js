@@ -30,10 +30,6 @@ router.get('/initialize', async (req, res) => {
   await steve.setPassword('test3')
   await steve.save()
 
-  // const jill = await User.create({ name: 'jill', email: 'jill@coyotiv.com', password: 'mypassword' })
-  // const regina = await User.create({ name: 'regina', email: 'regina@coyotiv.com', password: 'mypassword' })
-  // const steve = await User.create({ name: 'steve', email: 'steve@coyotiv.com', password: 'mypassword' })
-
   // test interests
   await jill.testInterest('coffee')
   const jillChocolate = await jill.testInterest('chocolate')

@@ -10,11 +10,6 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  password: {
-    type: String,
-    // unique: true,
-    required: true,
-  },
   interests: [
     {
       type: mongoose.Schema.Types.ObjectId,

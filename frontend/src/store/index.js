@@ -109,6 +109,13 @@ export default new Vuex.Store({
       params.set('locale', locale)
       completeUrl = baseUrl.toString()
       console.log(completeUrl)
+    },
+
+    async fetchSession({ commit }) {
+      const user = await axios.get('/api/accounts/session')
+      commit(mutations.SET_USER, user.data || null)
+    },
+
     }
   },
   modules: {}

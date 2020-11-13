@@ -12,6 +12,13 @@ let baseUrl = new URL(
 let params = baseUrl.searchParams
 let completeUrl
 
+const mutations = {
+  INCREMENT_COUNT: 'increment count',
+  SET_USER: 'set user',
+  GET_INTERESTS: 'get interests'
+}
+
+const store = new Vuex.Store({
 export default new Vuex.Store({
   state: {
     count: 0,
@@ -19,13 +26,21 @@ export default new Vuex.Store({
     user: null
   },
   mutations: {
-    incrementCount(state) {
+    [mutations.INCREMENT_COUNT](state) {
       state.count++
     },
 
-    getInterests(state, response) {
+    [mutations.GET_INTERESTS](state, response) {
       state.response = response
     },
+
+    // incrementCount(state) {
+    //   state.count++
+    // },
+
+    // getInterests(state, response) {
+    //   state.response = response
+    // },
 
     [mutations.SET_USER](state, user) {
       state.user = user

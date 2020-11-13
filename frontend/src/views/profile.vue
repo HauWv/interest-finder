@@ -27,7 +27,7 @@ export default {
 
 <template lang="pug">
   .home
-    h1 List of users
+    h1 Account: {{user.name}}
     div(v-for="user in users" :user="user")
       router-link(:to="`/users/${user._id}`") {{ user.name }}
     Counter

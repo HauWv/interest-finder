@@ -63,8 +63,8 @@ export default new Vuex.Store({
       response.data.data.forEach(result => {
         result.starred = interests.some(interest => interest.name == result.name)
       })
-
-      commit('getInterests', response.data.data)
+      commit(mutations.GET_INTERESTS, response.data.data)
+      // commit('getInterests', response.data.data)
     },
 
     async register(store, user) {

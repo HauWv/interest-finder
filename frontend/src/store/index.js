@@ -60,6 +60,7 @@ const store = new Vuex.Store({
 
     clearResponse({ commit }) {
       commit(mutations.CLEAR_RESPONSE)
+      window.location.reload()
     },
 
     async register(store, user) {

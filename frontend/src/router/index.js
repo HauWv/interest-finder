@@ -44,12 +44,20 @@ export default function init(store) {
       {
         path: '/interest-list',
         name: 'Starred',
-        component: Starred
+        component: Starred,
+        beforeEnter(to, from, next) {
+          if (!store.state.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/projects',
         name: 'Projects',
-        component: Projects
+        component: Projects,
+        beforeEnter(to, from, next) {
+          if (!store.state.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/register',

@@ -58,11 +58,6 @@ passport.deserializeUser(User.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use(async (req, res, next) => {
-  req.user = await User.findOne({ name: 'jill' })
-  next()
-})
-
 app.use('/api', (req, res, next) => {
   req.session.viewCount = req.session.viewCount || 0
   req.session.viewCount++

@@ -124,6 +124,12 @@ export default new Vuex.Store({
         throw e
       }
     },
+    async register(store, user) {
+      return axios.post('/api/accounts', user)
+    },
+    async logout({ commit }) {
+      await axios.delete('/api/accounts/session')
+      commit(mutations.SET_USER, null)
     }
   },
   modules: {}

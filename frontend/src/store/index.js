@@ -47,9 +47,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    incrementCount(store) {
-      store.commit('incrementCount')
+    incrementCount({ commit }) {
+      commit(mutations.INCREMENT_COUNT)
     },
+
+    // incrementCount(store) {
+    //   store.commit('incrementCount')
+    // },
 
     async getInterests({ commit, dispatch }, form) {
       await dispatch('setUrlParams', form)

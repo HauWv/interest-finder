@@ -60,7 +60,6 @@ const store = new Vuex.Store({
 
     clearResponse({ commit }) {
       commit(mutations.CLEAR_RESPONSE)
-      window.location.reload()
     },
 
     async register(store, user) {
@@ -140,6 +139,7 @@ const store = new Vuex.Store({
       return axios.post('/api/accounts', user)
     },
     async logout({ commit }) {
+      window.location.reload()
       await axios.delete('/api/accounts/session')
       commit(mutations.SET_USER, null)
     }

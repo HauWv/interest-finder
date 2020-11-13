@@ -2,7 +2,7 @@
 // @ is an alias to /src
 import axios from 'axios'
 import Counter from '@/components/counter.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Profile',
@@ -14,6 +14,10 @@ export default {
   },
   async created() {
     this.users = await this.fetchUsers()
+  },
+
+  computed: {
+    ...mapState(['user'])
   },
   methods: {
     ...mapActions(['fetchUsers'])

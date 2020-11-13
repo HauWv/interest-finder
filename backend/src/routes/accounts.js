@@ -7,7 +7,7 @@ const router = express.Router()
 
 // fetch current session
 router.get('/session', (req, res) => {
-  res.send(req.session)
+  res.send(req.user)
 })
 
 // create a new account

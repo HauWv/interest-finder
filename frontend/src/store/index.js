@@ -33,13 +33,9 @@ const store = new Vuex.Store({
       state.response = response
     },
 
-    // incrementCount(state) {
-    //   state.count++
-    // },
-
-    // getInterests(state, response) {
-    //   state.response = response
-    // },
+    [mutations.CLEAR_RESPONSE](state, response) {
+      state.response = []
+    },
 
     [mutations.SET_USER](state, user) {
       state.user = user
@@ -50,10 +46,6 @@ const store = new Vuex.Store({
       commit(mutations.INCREMENT_COUNT)
     },
 
-    // incrementCount(store) {
-    //   store.commit('incrementCount')
-    // },
-
     async getInterests({ commit, dispatch }, form) {
       await dispatch('setUrlParams', form)
       const response = await axios.get(completeUrl)
@@ -63,20 +55,11 @@ const store = new Vuex.Store({
         result.starred = interests.some(interest => interest.name == result.name)
       })
       commit(mutations.GET_INTERESTS, response.data.data)
-      // commit('getInterests', response.data.data)
     },
 
     async register(store, user) {
       return axios.post('/api/accounts', user)
     },
-
-    // async register(store, user) {
-    //   await axios.post(`/api/signup`, {
-    //     name: user.name,
-    //     email: user.email,
-    //     password: user.password
-    //   })
-    // },
 
     async fetchUser(store, id) {
       const userRequest = await axios.get(`/api/users/${id}`)

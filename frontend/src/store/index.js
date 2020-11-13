@@ -19,7 +19,6 @@ const mutations = {
 }
 
 const store = new Vuex.Store({
-export default new Vuex.Store({
   state: {
     count: 0,
     response: [],
@@ -158,3 +157,8 @@ export default new Vuex.Store({
   },
   modules: {}
 })
+
+export default async function init() {
+  await store.dispatch('fetchSession')
+  return store
+}

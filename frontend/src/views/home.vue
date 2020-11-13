@@ -14,7 +14,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['response']),
+    ...mapState(['response', 'user']),
 
     formattedKeyword() {
       return this.keyword.charAt(0).toUpperCase() + this.keyword.slice(1)
@@ -61,6 +61,10 @@ export default {
       })
     },
     async handleStar(interest) {
+      if (!this.user) {
+        console.log('Must be logged in to star items!')
+        return
+      }
       await this.toggleStarred(interest)
     }
   }

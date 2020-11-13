@@ -31,7 +31,7 @@ export default {
                     li.nav-item.p-2
                         router-link.nav-link(to="/about") About
                     li.nav-item.p-2
-                        router-link.nav-link(to="/users") Users
+                        router-link.nav-link(to="/profile") Profile
                     li.nav-item.p-2
                         router-link.nav-link(to="/projects") Projects
                     li.nav-item.p-2

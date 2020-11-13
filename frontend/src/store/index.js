@@ -15,7 +15,8 @@ let completeUrl
 export default new Vuex.Store({
   state: {
     count: 0,
-    response: []
+    response: [],
+    user: null
   },
   mutations: {
     incrementCount(state) {
@@ -24,6 +25,10 @@ export default new Vuex.Store({
 
     getInterests(state, response) {
       state.response = response
+    },
+
+    [mutations.SET_USER](state, user) {
+      state.user = user
     }
   },
   actions: {

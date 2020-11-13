@@ -5,9 +5,10 @@ import axios from 'axios'
 export default {
   name: 'App',
   methods: {
-    ...mapActions(['logout']),
+    ...mapActions(['logout', 'clearResponse']),
     async doLogout() {
       await this.logout()
+      await this.clearResponse()
       this.$router.push('/login')
     }
   }

@@ -116,6 +116,14 @@ export default new Vuex.Store({
       commit(mutations.SET_USER, user.data || null)
     },
 
+    async login({ commit }, credentials) {
+      try {
+        const user = await axios.post('/api/accounts/session', credentials)
+        commit(mutations.SET_USER, user.data)
+      } catch (e) {
+        throw e
+      }
+    },
     }
   },
   modules: {}

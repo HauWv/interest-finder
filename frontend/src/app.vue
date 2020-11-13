@@ -1,14 +1,17 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import axios from 'axios'
 
 export default {
   name: 'App',
+  computed: {
+    ...mapState(['user'])
+  },
   methods: {
     ...mapActions(['logout', 'clearResponse']),
     async doLogout() {
-      await this.logout()
       await this.clearResponse()
+      await this.logout()
       this.$router.push('/login')
     }
   }
@@ -28,18 +31,18 @@ export default {
                         router-link.nav-link(to="/") Home
                     li.nav-item.p-2
                         router-link.nav-link(to="/about") About
-                    li.nav-item.p-2
+                    li.nav-item.p-2(v-if='this.user')
                         router-link.nav-link(to="/profile") Profile
-                    li.nav-item.p-2
+                    li.nav-item.p-2(v-if='this.user')
                         router-link.nav-link(to="/projects") Projects
-                    li.nav-item.p-2
+                    li.nav-item.p-2(v-if='this.user')
                         router-link.nav-link(to="/interest-list") Starred
-                    li.nav-item.p-2
+                    li.nav-item.p-2(v-if='this.user')
+                        a.nav-link(@click="doLogout" href="#") Logout
+                    li.nav-item.p-2(v-if='!this.user')
                         router-link.nav-link(to="/register") Register
-                    li.nav-item.p-2
+                    li.nav-item.p-2(v-if='!this.user')
                         router-link.nav-link(to="/login") Login
-                    li.nav-item.p-2
-                        a(@click="doLogout" href="#") Logout
     router-view
 </template>
 
@@ -57,7 +60,6 @@ export default {
 
 #nav {
   padding: 20px;
-  // background-color: aquamarine;
 
   a {
     font-weight: bold;

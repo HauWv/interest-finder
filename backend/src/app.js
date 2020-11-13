@@ -70,7 +70,7 @@ app.use('/api', (req, res, next) => {
 })
 
 app.use('/api/', indexRouter)
-app.use('/api/account', accountsRouter)
+app.use('/api/accounts', accountsRouter)
 app.use('/api/users', usersRouter)
 // app.use('/api/signup', signupRouter)
 app.use('/api/interests', interestsRouter)

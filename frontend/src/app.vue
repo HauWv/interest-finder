@@ -38,6 +38,10 @@ export default {
                         router-link.nav-link(to="/interest-list") Starred
                     li.nav-item.p-2
                         router-link.nav-link(to="/register") Register
+                    li.nav-item.p-2
+                        router-link.nav-link(to="/login") Login
+                    li.nav-item.p-2
+                        a(@click="doLogout" href="#") Logout
     router-view
 </template>
 

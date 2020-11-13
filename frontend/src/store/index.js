@@ -15,7 +15,8 @@ let completeUrl
 const mutations = {
   INCREMENT_COUNT: 'increment count',
   SET_USER: 'set user',
-  GET_INTERESTS: 'get interests'
+  GET_INTERESTS: 'get interests',
+  CLEAR_RESPONSE: 'clear response'
 }
 
 const store = new Vuex.Store({
@@ -55,6 +56,10 @@ const store = new Vuex.Store({
         result.starred = interests.some(interest => interest.name == result.name)
       })
       commit(mutations.GET_INTERESTS, response.data.data)
+    },
+
+    clearResponse({ commit }) {
+      commit(mutations.CLEAR_RESPONSE)
     },
 
     async register(store, user) {

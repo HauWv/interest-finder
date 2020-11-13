@@ -11,7 +11,7 @@ const mongooseConnection = require('./database-connection')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
-const signupRouter = require('./routes/signup')
+// const signupRouter = require('./routes/signup')
 const interestsRouter = require('./routes/interests')
 const projectsRouter = require('./routes/projects')
 const accountsRouter = require('./routes/accounts')
@@ -72,7 +72,7 @@ app.use('/api', (req, res, next) => {
 app.use('/api/', indexRouter)
 app.use('/api/account', accountsRouter)
 app.use('/api/users', usersRouter)
-app.use('/api/signup', signupRouter)
+// app.use('/api/signup', signupRouter)
 app.use('/api/interests', interestsRouter)
 app.use('/api/projects', projectsRouter)
 

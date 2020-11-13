@@ -43,13 +43,17 @@ export default new Vuex.Store({
       commit('getInterests', response.data.data)
     },
 
-    async signUp(store, user) {
-      await axios.post(`/api/signup`, {
-        name: user.name,
-        email: user.email,
-        password: user.password
-      })
+    async register(store, user) {
+      return axios.post('/api/accounts', user)
     },
+
+    // async register(store, user) {
+    //   await axios.post(`/api/signup`, {
+    //     name: user.name,
+    //     email: user.email,
+    //     password: user.password
+    //   })
+    // },
 
     async fetchUser(store, id) {
       const userRequest = await axios.get(`/api/users/${id}`)

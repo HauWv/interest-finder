@@ -4,7 +4,7 @@ import Home from '../views/home.vue'
 import Profile from '../views/profile.vue'
 import Starred from '../views/interest-list.vue'
 import Projects from '../views/projects.vue'
-import SignUp from '../views/signup.vue'
+import Register from '../views/register.vue'
 
 Vue.use(VueRouter)
 
@@ -43,9 +43,10 @@ const routes = [
     component: Projects
   },
   {
-    path: '/signup',
-    name: 'SignUp',
-    component: SignUp
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
   }
 ]
 

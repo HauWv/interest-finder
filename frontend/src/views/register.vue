@@ -3,15 +3,35 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'SignUp',
-  components: {},
+  name: 'Register',
   data() {
     return {
-      user: {}
+      name: '',
+      age: null,
+      email: '',
+      password: '',
+
+      backendError: null
     }
   },
   methods: {
-    ...mapActions(['signUp'])
+    ...mapActions(['register']),
+    async submitLogin(e) {
+      e.preventDefault()
+
+      try {
+        await this.register({
+          name: this.name,
+          age: this.age,
+          email: this.email,
+          password: this.password
+        })
+
+        this.$router.push('/login')
+      } catch (e) {
+        this.backendError = e.response.data.message
+      }
+    }
   }
 }
 </script>

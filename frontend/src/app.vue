@@ -37,7 +37,7 @@ export default {
                     li.nav-item.p-2
                         router-link.nav-link(to="/interest-list") Starred
                     li.nav-item.p-2
-                        router-link.nav-link(to="/signup") Sign Up
+                        router-link.nav-link(to="/register") Register
     router-view
 </template>
 

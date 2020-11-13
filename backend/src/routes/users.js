@@ -31,14 +31,14 @@ router.get('/initialize', async (req, res) => {
   await steve.save()
 
   // test interests
-  await jill.testInterest('coffee')
-  const jillChocolate = await jill.testInterest('chocolate')
+  await jill.testInterest('Coffee')
+  const jillChocolate = await jill.testInterest('Chocolate')
   await steve.testInterest('hackers')
 
   // star interests
-  const reginaTea = await regina.starInterest('tea')
-  await jill.starInterest('coffee')
-  await jill.starInterest('chocolate')
+  const reginaTea = await regina.starInterest('Tea')
+  await jill.starInterest('Coffee')
+  await jill.starInterest('Chocolate')
 
   // create projects
   const jillProject = await jill.createProject('jill project') // error from this line

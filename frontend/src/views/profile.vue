@@ -5,7 +5,7 @@ import Counter from '@/components/counter.vue'
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Users',
+  name: 'Profile',
   components: { Counter },
   data() {
     return {

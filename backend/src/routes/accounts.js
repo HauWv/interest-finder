@@ -11,14 +11,26 @@ router.get('/session', (req, res) => {
 })
 
 // create a new account
-router.post('/', async (req, res) => {
+
+// router.post('/', async (req, res) => {
+//   const { name, email, password } = req.body
+
+//   const user = new User({ name, email })
+//   await user.setPassword(password)
+//   await user.save()
+
+//   return user
+// })
+
+router.post('/', async (req, res, next) => {
   const { name, email, password } = req.body
 
-  const user = new User({ name, email })
-  await user.setPassword(password)
-  await user.save()
-
-  return user
+  try {
+    const user = await User.register({ name, email }, password)
+    res.send(user)
+  } catch (e) {
+    next(e)
+  }
 })
 
 // log in

@@ -19,15 +19,15 @@ router.get('/', async (req, res) => {
 
 router.get('/initialize', async (req, res) => {
   const jill = new User({ name: 'jill', email: 'jill@coyotiv.com' })
-  await jill.setPassword('test1')
+  await jill.setPassword('test')
   await jill.save()
 
   const regina = new User({ name: 'regina', email: 'regina@coyotiv.com' })
-  await regina.setPassword('test2')
+  await regina.setPassword('test')
   await regina.save()
 
   const steve = new User({ name: 'steve', email: 'steve@coyotiv.com' })
-  await steve.setPassword('test3')
+  await steve.setPassword('test')
   await steve.save()
 
   // test interests

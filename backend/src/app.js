@@ -6,6 +6,7 @@ const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('passport')
+const FacebookStrategy = require('passport-facebook').Strategy
 
 const mongooseConnection = require('./database-connection')
 

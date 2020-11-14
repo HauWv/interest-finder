@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     ...mapActions(['register']),
-    async submitLogin(e) {
+    async submitRegister(e) {
       e.preventDefault()
 
       try {
@@ -40,7 +40,7 @@ export default {
     .container.border
         .row
             .col
-                form.p-5(@submit.prevent='submitLogin')
+                form.p-5(@submit='submitRegister')
                     h4.mb-4.text-center Sign up
                     input#defaultRegisterFormFirstName.form-control.mb-3(v-model='name' type='text' name='name' placeholder='Name')
                     input#defaultRegisterFormEmail.form-control.mb-4(v-model='email' type='email' name='email' placeholder='E-mail')

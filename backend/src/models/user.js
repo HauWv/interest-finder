@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
+  facebookId: {
+    type: String,
+  },
   interests: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -54,9 +54,6 @@ app.use(passport.session())
 
 passport.use(User.createStrategy())
 
-passport.serializeUser(User.serializeUser())
-passport.deserializeUser(User.deserializeUser())
-
 passport.use(
   new FacebookStrategy(
     {
@@ -71,6 +68,9 @@ passport.use(
     }
   )
 )
+
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 

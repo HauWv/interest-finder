@@ -138,6 +138,12 @@ const store = new Vuex.Store({
     async register(store, user) {
       return axios.post('/api/accounts', user)
     },
+
+    async loginFacebook() {
+      const user = await axios.get('/api/accounts/auth/facebook')
+      console.log(user.data)
+    },
+
     async logout({ commit }) {
       window.location.reload()
       await axios.delete('/api/accounts/session')

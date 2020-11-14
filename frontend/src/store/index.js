@@ -62,10 +62,6 @@ const store = new Vuex.Store({
       commit(mutations.CLEAR_RESPONSE)
     },
 
-    async register(store, user) {
-      return axios.post('/api/accounts', user)
-    },
-
     async fetchUser(store, id) {
       const userRequest = await axios.get(`/api/users/${id}`)
       return userRequest.data

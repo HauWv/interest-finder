@@ -57,6 +57,21 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: '2500630653572714',
+      clientSecret: '69e7d76dec8544a66d170edb78f3b14e',
+      callbackURL: 'http://marketing.localhost/auth/facebook/callback',
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+        return cb(err, user)
+      })
+    }
+  )
+)
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', (req, res, next) => {

@@ -11,7 +11,6 @@ router.get('/session', (req, res) => {
 })
 
 // create a new account
-
 router.post('/', async (req, res, next) => {
   const { name, email, password } = req.body
 

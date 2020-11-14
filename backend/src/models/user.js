@@ -3,6 +3,7 @@ const autopopulate = require('mongoose-autopopulate')
 const Interest = require('./interest')
 const Project = require('./project')
 const passportLocalMongoose = require('passport-local-mongoose')
+require('passport-facebook').Strategy
 
 const userSchema = new mongoose.Schema({
   name: {

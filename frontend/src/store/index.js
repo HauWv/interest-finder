@@ -121,12 +121,17 @@ const store = new Vuex.Store({
     async fetchSession({ commit }) {
       const user = await axios.get('/api/accounts/session')
       commit(mutations.SET_USER, user.data || null)
+      // console.log('user data = ', user.data)
     },
 
     async login({ commit }, credentials) {
       try {
         const user = await axios.post('/api/accounts/session', credentials)
         commit(mutations.SET_USER, user.data)
+        // console.log('logging in front end')
+        // console.log(user)
+        // console.log(user.data)
+        console.log(credentials)
       } catch (e) {
         throw e
       }

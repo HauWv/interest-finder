@@ -25,9 +25,6 @@ export default {
       } catch (e) {
         this.backendError = e.response.data.message
       }
-    },
-    async handleFacebookLogin() {
-      await this.loginFacebook()
     }
   }
 }
@@ -44,7 +41,7 @@ export default {
       input(type="submit" value="Log in")
     div(v-if="backendError") {{ backendError }}
     div Don't have an account yet? <router-link to="/register">Register</router-link>
-    Button(@click='handleFacebookLogin') Login with Facebook
+    a() Login with Facebook
 </template>
 
 <style lang="scss" scoped>

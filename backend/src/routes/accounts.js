@@ -24,6 +24,7 @@ router.post('/', async (req, res, next) => {
 
 // log in
 router.post('/session', passport.authenticate('local', { failWithError: true }), async (req, res) => {
+  // console.log(req)
   res.send(req.user)
 })
 
@@ -44,7 +45,7 @@ router.delete('/session', async (req, res, next) => {
 router.get('/auth/facebook', passport.authenticate('facebook'))
 
 // Facebook will redirect the user to this URL after approval
-router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) => {
+router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => {
   // Successful authentication, redirect home.
   res.redirect('/')
 })

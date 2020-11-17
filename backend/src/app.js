@@ -57,6 +57,10 @@ app.use(
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       path: '/api',
+      // allows multiple domains to access it
+      sameSite: process.env.NODE_ENV == 'production' ? 'none' : 'strict',
+      // secure allows only https
+      secure: process.env.NODE_ENV == 'production',
     },
   })
 )

@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 import axios from 'axios'
 // import user from '../../../backend/src/models/user'
 
+axios.defaults.baseURL = process.env.VUE_APP_BASE_URL
+axios.defaults.withCredentials = true
+
 Vue.use(Vuex)
 
 let baseUrl = new URL(

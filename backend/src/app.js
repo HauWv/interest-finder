@@ -7,6 +7,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
+const cors = require('cors')
 
 const mongooseConnection = require('./database-connection')
 
@@ -19,6 +20,17 @@ const accountsRouter = require('./routes/accounts')
 const User = require('./models/user')
 
 const app = express()
+
+//use it as a middleware
+app.use(
+  cors({
+    // enables request from any domain, not safe, further add the domain you want
+    origin: true,
+    // origin: https://frontend-blablablabla.run.app/
+    // allows cookies
+    credentials: true,
+  })
+)
 
 if (app.get('env') == 'development') {
   /* eslint-disable-next-line */

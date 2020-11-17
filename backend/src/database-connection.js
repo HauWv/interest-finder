@@ -20,8 +20,6 @@ if (!connectionString) {
 //     : `mongodb://${host}:${port}/${dbName}`
 // }
 
-// sudo docker run -p 3000:3000 -p 35729:35729 -e MONGODB_USERNAME=root -e MONGODB_PASSWORD=Rpm096yVvOWMlyfB -e MONGODB_DATABASE=first-database -e MONGODB_HOST=cluster0.1rmwl.mongodb.net -e MONGODB_REMOTE=1 -v $(pwd)/src:/app/src marketing-project
-
 mongoose
   .connect(connectionString, {
     useNewUrlParser: true,

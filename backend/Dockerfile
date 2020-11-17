@@ -1,15 +1,15 @@
-FROM node:14-alpine
+FROM node:14.8.0-alpine3.11
 
-RUN npm install -g nodemon
+ENV NODE_ENV=production
 
 WORKDIR /app
+# All commands that are under here go in the app directiory
 
 ADD package.json package-lock.json ./
 
-RUN npm install
+RUN npm install --production
 
 ADD bin ./bin
+ADD src ./src
 
-CMD ["nodemon"]
-
-# remember to change to "$(pwd)"/src:/app/src when running, because of WORKDIR /app
+CMD ["npm", "start"]

@@ -52,7 +52,8 @@ const store = new Vuex.Store({
 
     async getInterests({ commit, dispatch }, form) {
       await dispatch('setUrlParams', form)
-      const response = await axios.get(completeUrl)
+      // const response = await axios.get(completeUrl)
+      const response = await axios({ url: completeUrl, withCredentials: false })
       const interests = await dispatch('fetchStarredInterests')
 
       response.data.data.forEach(result => {

@@ -105,7 +105,6 @@ const store = new Vuex.Store({
 
     async fetchProjects() {
       const projectsRequest = await axios.get('/api/projects')
-      console.log(projectsRequest.data)
       return projectsRequest.data
     },
 
@@ -119,23 +118,18 @@ const store = new Vuex.Store({
       params.set('type', searchType)
       params.set('locale', locale)
       completeUrl = baseUrl.toString()
-      console.log(completeUrl)
+      // console.log(completeUrl)
     },
 
     async fetchSession({ commit }) {
       const user = await axios.get('/api/accounts/session')
       commit(mutations.SET_USER, user.data || null)
-      // console.log('user data = ', user.data)
     },
 
     async login({ commit }, credentials) {
       try {
         const user = await axios.post('/api/accounts/session', credentials)
         commit(mutations.SET_USER, user.data)
-        // console.log('logging in front end')
-        // console.log(user)
-        // console.log(user.data)
-        console.log(credentials)
       } catch (e) {
         throw e
       }

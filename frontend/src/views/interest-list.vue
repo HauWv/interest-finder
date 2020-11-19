@@ -23,10 +23,25 @@ export default {
 </script>
 
 <template lang="pug">
-  .box
+  .box.m-5
     h1 Starred Interests
-    div(v-for="interest in interests" :interest="interest")
-      router-link(:to="`/interest-list/${interest._id}`") {{ interest.name }}
-      button(@click="toggleStarred(interest)") star / unstar
-      span {{ interest.starred }}
+    div(v-for="interest in interests" :interest="interest")(v-if="interest.starred")
+      span.star.p-1(@click="toggleStarred(interest)") &#11088;
+      router-link.interest.mx-3.my-5(:to="`/interest-list/${interest._id}`") {{interest.name}}
 </template>
+
+<style scoped>
+.star {
+  cursor: pointer;
+}
+
+.star:hover {
+  /* background-color: blue; */
+  font-size: 1.3rem;
+}
+
+.interest {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+</style>

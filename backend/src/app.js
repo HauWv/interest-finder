@@ -8,12 +8,12 @@ const MongoStore = require('connect-mongo')(session)
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
 const cors = require('cors')
+const helmet = require('helmet')
 
 const mongooseConnection = require('./database-connection')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
-// const signupRouter = require('./routes/signup')
 const interestsRouter = require('./routes/interests')
 const projectsRouter = require('./routes/projects')
 const accountsRouter = require('./routes/accounts')
@@ -51,6 +51,7 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(helmet())
 
 app.use(
   session({

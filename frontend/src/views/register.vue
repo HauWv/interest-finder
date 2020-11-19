@@ -37,7 +37,7 @@ export default {
 </script>
 
 <template lang="pug">
-    .container.border
+    .container
         .row
             .col
                 form.p-5(@submit='submitRegister')

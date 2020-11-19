@@ -33,11 +33,12 @@ export default {
 <style scoped>
 .star {
   cursor: pointer;
+  display: inline-block;
+  transition: 0.2s;
 }
 
 .star:hover {
-  /* background-color: blue; */
-  font-size: 1.3rem;
+  transform: scale(1.4);
 }
 
 .interest {

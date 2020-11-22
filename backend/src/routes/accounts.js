@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 // const { celebrate, Joi, errors, Segments } = require('celebrate')
+const { validate, ValidationError, Joi } = require('express-validation')
 
 const User = require('../models/user')
 

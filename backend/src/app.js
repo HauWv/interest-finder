@@ -112,6 +112,14 @@ app.use('/api/projects', projectsRouter)
 
 // app.use(errors())
 
+app.use(function (err, req, res, next) {
+  if (err instanceof ValidationError) {
+    return res.status(err.statusCode).json(err)
+  }
+
+  return res.status(500).json(err)
+})
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404))

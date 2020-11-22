@@ -4,6 +4,7 @@ const passport = require('passport')
 const { validate, ValidationError, Joi } = require('express-validation')
 
 const User = require('../models/user')
+// const { JSONCookie } = require('cookie-parser')
 
 const router = express.Router()
 
@@ -31,7 +32,7 @@ router.get('/session', (req, res) => {
   res.send(req.user)
 })
 
-// create a new account
+// register
 router.post('/', async (req, res, next) => {
   const { name, email, password } = req.body
 

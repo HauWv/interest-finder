@@ -1,5 +1,6 @@
 const express = require('express')
 const passport = require('passport')
+// const { celebrate, Joi, errors, Segments } = require('celebrate')
 
 const User = require('../models/user')
 

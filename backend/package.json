@@ -47,6 +47,7 @@
     "pretty-quick": "^3.0.2"
   },
   "dependencies": {
+    "celebrate": "^13.0.4",
     "colors": "^1.4.0",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",

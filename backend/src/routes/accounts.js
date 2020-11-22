@@ -16,6 +16,16 @@ const loginValidation = {
   }),
 }
 
+// const signupValidation = {
+//   body: Joi.object({
+//     name: Joi.string().required(),
+//     email: Joi.string().email().required(),
+//     password: Joi.string()
+//       .regex(/[a-zA-Z0-9]{3,30}/)
+//       .required(),
+//   }),
+// }
+
 // fetch current session
 router.get('/session', (req, res) => {
   res.send(req.user)

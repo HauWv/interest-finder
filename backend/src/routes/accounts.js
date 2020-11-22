@@ -7,6 +7,15 @@ const User = require('../models/user')
 
 const router = express.Router()
 
+const loginValidation = {
+  body: Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string()
+      .regex(/[a-zA-Z0-9]{3,30}/)
+      .required(),
+  }),
+}
+
 // fetch current session
 router.get('/session', (req, res) => {
   res.send(req.user)
@@ -25,10 +34,15 @@ router.post('/', async (req, res, next) => {
 })
 
 // log in
-router.post('/session', passport.authenticate('local', { failWithError: true }), async (req, res) => {
-  // console.log(req)
-  res.send(req.user)
-})
+router.post(
+  '/session',
+  validate(loginValidation, {}, {}),
+  passport.authenticate('local', { failWithError: true }),
+  async (req, res) => {
+    // console.log(req)
+    res.send(req.user)
+  }
+)
 
 // log out
 router.delete('/session', async (req, res, next) => {

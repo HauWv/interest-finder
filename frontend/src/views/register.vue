@@ -7,7 +7,6 @@ export default {
   data() {
     return {
       name: '',
-      age: null,
       email: '',
       password: '',
 
@@ -22,7 +21,6 @@ export default {
       try {
         await this.register({
           name: this.name,
-          age: this.age,
           email: this.email,
           password: this.password
         })

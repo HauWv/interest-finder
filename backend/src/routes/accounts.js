@@ -21,17 +21,28 @@ router.get('/session', (req, res) => {
   res.send(req.user)
 })
 
-// register
-router.post('/', async (req, res, next) => {
-  const { name, email, password } = req.body
+// signup
+router.post(
+  '/',
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      name: Joi.string().required(),
+      email: Joi.string().required(),
+      password: Joi.string().required(),
+    }),
+  }),
+  async (req, res, next) => {
+    // At this point, req.body has been validated
+    const { name, email, password } = req.body
 
-  try {
-    const user = await User.register({ name, email }, password)
-    res.send(user)
-  } catch (e) {
-    next(e)
+    try {
+      const user = await User.register({ name, email }, password)
+      res.send(user)
+    } catch (e) {
+      next(e)
+    }
   }
-})
+)
 
 // log in
 router.post(

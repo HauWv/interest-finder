@@ -11,7 +11,6 @@ const cors = require('cors')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
 // const { celebrate, Joi, errors, Segments } = require('celebrate')
-const { validate, ValidationError, Joi } = require('express-validation')
 const mongoSanitize = require('express-mongo-sanitize')
 
 const mongooseConnection = require('./database-connection')
@@ -113,15 +112,6 @@ app.use('/api/users', usersRouter)
 app.use('/api/interests', interestsRouter)
 app.use('/api/projects', projectsRouter)
 
-// app.use(errors())
-
-app.use(function (err, req, res, next) {
-  if (err instanceof ValidationError) {
-    return res.status(err.statusCode).json(err)
-  }
-
-  return res.status(500).json(err)
-})
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

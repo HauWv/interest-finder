@@ -1,25 +1,14 @@
 const express = require('express')
 const passport = require('passport')
 // const { celebrate, Joi, errors, Segments } = require('celebrate')
-const { validate, ValidationError, Joi } = require('express-validation')
 
 const User = require('../models/user')
 // const { JSONCookie } = require('cookie-parser')
 
 const router = express.Router()
 
-const loginValidation = {
-  body: Joi.object({
-    email: Joi.string().email().required(),
-    password: Joi.string()
-      .regex(/[a-zA-Z0-9]{3,30}/)
-      .required(),
-  }),
-}
-
-// const signupValidation = {
+// const loginValidation = {
 //   body: Joi.object({
-//     name: Joi.string().required(),
 //     email: Joi.string().email().required(),
 //     password: Joi.string()
 //       .regex(/[a-zA-Z0-9]{3,30}/)
@@ -47,7 +36,7 @@ router.post('/', async (req, res, next) => {
 // log in
 router.post(
   '/session',
-  validate(loginValidation, {}, {}),
+  // validate(loginValidation, {}, {}),
   passport.authenticate('local', { failWithError: true }),
   async (req, res) => {
     // console.log(req)

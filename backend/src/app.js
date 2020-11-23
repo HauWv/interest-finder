@@ -10,8 +10,8 @@ const FacebookStrategy = require('passport-facebook').Strategy
 const cors = require('cors')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
-// const { celebrate, Joi, errors, Segments } = require('celebrate')
 const mongoSanitize = require('express-mongo-sanitize')
+const { errors } = require('celebrate')
 
 const mongooseConnection = require('./database-connection')
 
@@ -112,6 +112,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/interests', interestsRouter)
 app.use('/api/projects', projectsRouter)
 
+app.use(errors())
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

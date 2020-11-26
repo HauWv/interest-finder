@@ -61,7 +61,7 @@ app.use(mongoSanitize())
 
 app.use(
   session({
-    secret: '***REMOVED***',
+    secret: '',
     store: new MongoStore({ mongooseConnection, stringify: false }),
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -83,7 +83,7 @@ passport.use(
   new FacebookStrategy(
     {
       clientID: '2500630653572714',
-      clientSecret: '***REMOVED***',
+      clientSecret: '',
       callbackURL: 'http://marketing.localhost/api/accounts/auth/facebook/callback',
     },
     function (accessToken, refreshToken, profile, cb) {

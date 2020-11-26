@@ -8,9 +8,7 @@ axios.defaults.withCredentials = true
 
 Vue.use(Vuex)
 
-let baseUrl = new URL(
-  'https://graph.facebook.com/search?limit=500&access_token=677916593037704|gvX9a7sygGJ3nMNvSvr5WalhCCM'
-)
+let baseUrl = new URL('https://graph.facebook.com/search?limit=500&access_token=')
 // get access to URLSearchParams object
 let params = baseUrl.searchParams
 let completeUrl

@@ -23,6 +23,9 @@ const projectsRouter = require('./routes/projects')
 const accountsRouter = require('./routes/accounts')
 const User = require('./models/user')
 
+const sessionSecret = process.env.SESSION_SECRET
+const facebookSecret = process.env.FACEBOOK_STRATEGY_CLIENT_SECRET
+
 const app = express()
 
 //use it as a middleware
@@ -62,7 +65,7 @@ app.use(mongoSanitize())
 
 app.use(
   session({
-    secret: '',
+    secret: sessionSecret,
     store: new MongoStore({ mongooseConnection, stringify: false }),
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -84,7 +87,7 @@ passport.use(
   new FacebookStrategy(
     {
       clientID: '2500630653572714',
-      clientSecret: '',
+      clientSecret: facebookSecret,
       callbackURL: 'http://marketing.localhost/api/accounts/auth/facebook/callback',
     },
     function (accessToken, refreshToken, profile, cb) {

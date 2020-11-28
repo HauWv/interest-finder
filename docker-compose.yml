@@ -4,7 +4,9 @@ services:
     image: frontend
     build:
       context: frontend
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
+    environment:
+      - PORT=8080
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`marketing.localhost`)"
@@ -13,16 +15,17 @@ services:
       - 8080
     volumes:
       - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
   backend:
     image: backend
     build:
       context: backend
-      dockerfile: dev.Dockerfile
+      dockerfile: Dockerfile
     environment:
-      # - MONGODB_USERNAME=root
-      # - MONGODB_PASSWORD=Rpm096yVvOWMlyfB
-      # - MONGODB_DATABASE=first-database
-      # - MONGODB_REMOTE=1
+      # - MONGODB_USERNAME
+      # - MONGODB_PASSWORD
+      # - MONGODB_DATABASE
+      # - MONGODB_REMOTE
       - MONGODB_CONNECTION_STRING=mongodb://mongo/marketing-project
     labels:
       - "traefik.enable=true"

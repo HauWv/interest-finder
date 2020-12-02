@@ -12,7 +12,6 @@ const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const mongoSanitize = require('express-mongo-sanitize')
 const { errors } = require('celebrate')
-require('dotenv').config()
 
 const mongooseConnection = require('./database-connection')
 

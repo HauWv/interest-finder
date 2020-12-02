@@ -5,6 +5,7 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
+    env_file: ./frontend/.env.local
     environment:
       - PORT=8080
     labels:
@@ -21,6 +22,8 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
     environment:
       # - MONGODB_USERNAME
       # - MONGODB_PASSWORD

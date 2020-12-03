@@ -88,6 +88,7 @@ passport.use(
       clientID: '2500630653572714',
       clientSecret: facebookSecret,
       callbackURL: 'https://backend-5i4olyndpa-ew.a.run.app/api/accounts/auth/facebook/callback',
+      profileFields: ['id', 'displayName', 'name', 'gender', 'profileUrl', 'email', 'photos'],
       // callbackURL: 'http://marketing.localhost/api/accounts/auth/facebook/callback',
     },
     function (accessToken, refreshToken, profile, cb) {

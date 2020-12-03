@@ -93,7 +93,7 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOneAndUpdate(
-        { facebookId: profile.id },
+        { email: profile.emails[0].value },
         { facebookProfile: profile, name: profile.displayName, email: profile.emails[0].value, facebookId: profile.id },
         { upsert: true },
         function (err, user) {

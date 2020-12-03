@@ -41,7 +41,7 @@ export default {
       input(type="submit" value="Log in")
     div(v-if="backendError") {{ backendError }}
     div Don't have an account yet? <router-link to="/register">Register</router-link>
-    a(href='/api/accounts/auth/facebook') Login with Facebook
+    a(href='https://backend-5i4olyndpa-ew.a.run.app/api/accounts/auth/facebook') Login with Facebook
 </template>
 
 <style lang="scss" scoped>

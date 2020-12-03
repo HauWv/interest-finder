@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema({
       autopopulate: true,
     },
   ],
+  facebookProfile: Object,
 })
 
 class User {

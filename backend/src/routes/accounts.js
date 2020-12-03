@@ -18,8 +18,8 @@ const router = express.Router()
 
 // fetch current session
 router.get('/session', (req, res) => {
-  res.send(req.user)
-})
+  res.send(req.user) // this is shorthand for req.session.user
+}) // finding the user by the userId stored in the session is called deserialization
 
 // signup
 router.post(

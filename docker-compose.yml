@@ -5,7 +5,7 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    env_file: ./frontend/.env.local
+    env_file: ./frontend/.env.production
     environment:
       - PORT=8080
     labels:

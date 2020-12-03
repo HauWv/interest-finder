@@ -69,7 +69,7 @@ router.delete('/session', async (req, res, next) => {
 // Facebook stuff
 
 // redirect user to Facebook for authentication
-router.get('/auth/facebook', passport.authenticate('facebook'))
+router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }))
 
 // Facebook will redirect the user to this URL after approval
 router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => {

@@ -91,9 +91,14 @@ passport.use(
       // callbackURL: 'http://marketing.localhost/api/accounts/auth/facebook/callback',
     },
     function (accessToken, refreshToken, profile, cb) {
-      User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-        return cb(err, user)
-      })
+      User.findOneAndUpdate(
+        { facebookId: profile.id },
+        { facebookProfile: profile, name: profile.displayName, email: profile.emails[0].value, facebookId: profile.id },
+        { upsert: true },
+        function (err, user) {
+          return cb(err, user)
+        }
+      )
     }
   )
 )

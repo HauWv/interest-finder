@@ -40,7 +40,7 @@ export default {
                     li.nav-item.p-2(v-if='this.user')
                         a.nav-link(@click="doLogout" href="#") Logout
                     li.nav-item.p-2(v-if='!this.user')
-                        router-link.nav-link(to="/register") Register
+                        router-link.nav-link(to="/register") Sign up
                     li.nav-item.p-2(v-if='!this.user')
                         router-link.nav-link(to="/login") Login
     router-view

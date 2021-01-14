@@ -47,7 +47,7 @@ export default {
 .container(v-bind:style='{ background: backgroundColor}')
   .col
     .row.main-row.d-flex.justify-content-center.align-items-center
-      .form-container.h-40
+      .form-container
         form.login-form.d-flex.flex-column.m-4.p-5(@submit="submitLogin")
           h1.mb-4 Log in
           input#email.form-elem.my-2.p-2(v-model="email" type="email" placeholder="Email address" required)
@@ -56,10 +56,10 @@ export default {
           div(v-if="backendError") {{ backendError }}
           p.form-elem.my-2.p-1
             | Don't have an account yet? 
-            <router-link to="/register">Register</router-link>
+            <router-link to="/register">Sign up</router-link>
           a.form-elem.my-2.p-2.fb(href='https://backend-5i4olyndpa-ew.a.run.app/api/accounts/auth/facebook')
             i.fa.fa-facebook.fa-fw.mr-2
-            | Log in with Facebook
+            | Continue with Facebook
 
 </template>
 

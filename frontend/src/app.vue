@@ -21,8 +21,8 @@ export default {
 <template lang="pug">
   #app
     #nav
-        nav.navbar.sticky-top.navbar-expand-sm.navbar-light.mx-4
-            a.navbar-brand(href='#') Logo
+        nav.navbar.sticky-top.navbar-expand-sm.navbar-light.mx-5
+            //- a.navbar-brand(href='#') Logo
             button.navbar-toggler.ml-auto(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarSupportedContent.collapse.navbar-collapse
@@ -59,7 +59,7 @@ export default {
 }
 
 #nav {
-  padding: 20px;
+  padding: 10px;
 
   a {
     font-weight: bold;

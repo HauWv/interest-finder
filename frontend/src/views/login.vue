@@ -64,14 +64,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-// label {
-//   display: block;
-//   margin: 1rem 0;
-// }
 
-body {
-    background: #CEECEF;
-}
 .main-row {
   height: 80vh;
 }
@@ -86,17 +79,6 @@ body {
 form {
     background-color: white;
 }
-
-.btn {
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    margin: 5px 0;
-    opacity: 0.85;
-    display: inline-block;
-    font-size: 17px;
-    line-height: 20px;
-  }
 
 .fb {
     background-color: #1877F2;

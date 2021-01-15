@@ -72,31 +72,28 @@ export default {
 </script>
 
 <template lang="pug">
-  .container
-    .row
-      .col.d-flex.justify-content-center.mt-5
-        h1 Find Hidden Interests
-    .row
-      .col
-        .form-container.mx-5.px-5
-          form.p-4(@submit.prevent='handleSubmit')
-            .form-group.p-2
-              label Keyword
-              input#keyword.form-control(v-model='keyword' type='text' placeholder='' name='keyword')
-            .form-group.p-2
-              label Search Type
-              select#search-type.form-control(v-model='searchType')
-                option Ad Interest
-                option Associated Interests
-            .form-group.p-2
-              label Language
-              select#locale.form-control(v-model='locale')
-                option(selected='selected') English
-                option German
-                option Spanish
-            .btn-container.d-flex.justify-content-center
-              button.btn.btn-primary.px-5.my-3(type='submit') Go!
-          .note-container.mb-3.text-right
+.container
+  .row
+    .col.d-flex.justify-content-center
+      h1 Find Hidden Interests
+  .row
+    .col.d-flex.justify-content-center
+      .form-container.m-4
+        form.d-flex.flex-column(@submit.prevent='handleSubmit')
+          label(for='keyword') Keyword
+          input#keyword.form-control.mb-3.p-2(v-model='keyword' type='text' name='keyword' placeholder='Type something...')
+          label(for='search-type') Search Type
+          select#search-type.form-control.mb-3.p-2(v-model='searchType')
+            option Ad Interest
+            option Associated Interests
+          label(for='locale') Language
+          select#locale.form-control.mb-3.p-2(v-model='locale')
+            option(selected='selected') English
+            option German
+            option Spanish
+          .btn-container.d-flex.justify-content-center
+            button.btn.btn-primary.px-5.m-3(type='submit') Go!
+        .note-container.m-3.text-right
             p.note
               | * Note:
               i Associated interests
@@ -114,7 +111,13 @@ export default {
             span {{ formatAudienceSize(result.audience_size) }}
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+
+// .form-container {
+//   width: auto;
+//   max-width: 40rem;
+// }
+
 .result-card {
   padding: 12px;
 }

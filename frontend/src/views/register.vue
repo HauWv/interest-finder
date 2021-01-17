@@ -10,7 +10,6 @@ export default {
       email: '',
       password: '',
       backendError: null,
-      backgroundColor: '#CEECEF'
     }
   },
   methods: {
@@ -53,7 +52,7 @@ export default {
 //-                     a(href='' target='_blank') terms of service
 //-                     |.
 
-.container(v-bind:style='{ background: backgroundColor}')
+.container
   .col
     .row.main-row.d-flex.justify-content-center.align-items-center
       .form-container
@@ -72,6 +71,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+.container {
+  background-color: #CEECEF;
+}
 
 .main-row {
   height: 80vh;

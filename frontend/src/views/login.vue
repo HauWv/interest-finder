@@ -8,7 +8,6 @@ export default {
       email: '',
       password: '',
       backendError: null,
-      backgroundColor: '#CEECEF'
     }
   },
   methods: {
@@ -44,7 +43,7 @@ export default {
 //-     div Don't have an account yet? <router-link to="/register">Register</router-link>
 //-     a(href='https://backend-5i4olyndpa-ew.a.run.app/api/accounts/auth/facebook') Login with Facebook
 
-.container(v-bind:style='{ background: backgroundColor}')
+.container
   .col
     .row.main-row.d-flex.justify-content-center.align-items-center
       .form-container
@@ -64,6 +63,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+.container {
+  background-color: #CEECEF;
+}
 
 .main-row {
   height: 80vh;

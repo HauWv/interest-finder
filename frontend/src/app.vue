@@ -64,8 +64,12 @@ export default {
   padding: 10px;
 
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    font-weight: 500;
+    color: #030D4F;
+    // color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
 
     &.router-link-exact-active {
       color: #17a2b8;

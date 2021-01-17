@@ -75,7 +75,7 @@ export default {
 .container
   .row
     .col.d-flex.justify-content-center
-      h1 Find Hidden Interests
+      h1.my-5 Find Hidden Interests
   .row
     .col.d-flex.justify-content-center
       .form-container.m-4
@@ -117,6 +117,16 @@ export default {
 //   width: auto;
 //   max-width: 40rem;
 // }
+
+body {
+  background-color: #CEECEF !important;
+}
+
+h1 {
+  color: #030D4F;
+  font-family: 'Roboto', sans-serif;
+
+}
 
 .result-card {
   padding: 12px;

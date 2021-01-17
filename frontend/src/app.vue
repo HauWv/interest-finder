@@ -49,9 +49,13 @@ export default {
 <style lang="scss">
 // @import '@/assets/theme.scss';
 @import 'bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Imbue&family=Roboto:wght@400;500;700&display=swap');
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  // font-family: 'Roboto', sans-serif;
+  font-family: "Helvetica Neu", Helvetica, Arial, sans-serif;
+  // font-family: 'Imbue', serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // text-align: center;

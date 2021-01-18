@@ -12,6 +12,9 @@ The basic idea of this project is to take these API results and display them in 
 
 With this tool you can discover new audiences and target interests that no one else is targeting.
 
+## Demo
+<img src="https://user-images.githubusercontent.com/60620619/104944462-8dedef00-59b7-11eb-9116-ca96e9a6b86f.gif" alt="project demo" width="650" />
+
 ## Coming soon...
 The project is still not complete. Features that I'll add in the future include:
 - The ability to create projects and add interests to them, so you can keep track of your saved interests more easily.

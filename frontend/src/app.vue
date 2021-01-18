@@ -69,7 +69,6 @@ export default {
     // color: red;
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
-    letter-spacing: 0.5px;
 
     &.router-link-exact-active {
       color: #17a2b8;

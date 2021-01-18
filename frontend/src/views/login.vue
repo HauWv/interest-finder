@@ -73,21 +73,23 @@ export default {
 }
 
 .form-container {
-    width: auto;
-    background-color: white;
-    border-radius: 6%;
-    box-shadow: 5px 10px 20px darkslategray;
+  width: auto;
+  background-color: white;
+  border-radius: 1%;
+  border-left: 5px solid #FFC52C;
+  border-top: 5px solid #030D4F;
+  box-shadow: 1px 2px 10px slategray;
+  // box-shadow: 2px 5px 15px darkslategray;
 }
  
 form {
-    background-color: white;
+  background-color: white;
 }
 
-h1 {
-  // font-family: 'Roboto';
-  // font-weight: bold;
-  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+// h1 {
+//   font-family: 'Roboto';
+//   font-weight: bold;
+// }
 
 .fb {
     background-color: #1877F2;
@@ -99,7 +101,7 @@ h1 {
   }
 
   .fb:hover {
-      color: white;
-      text-decoration: none;
+    color: white;
+    text-decoration: none;
   }
 </style>

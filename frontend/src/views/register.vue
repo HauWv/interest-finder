@@ -83,8 +83,11 @@ export default {
 .form-container {
     width: auto;
     background-color: white;
-    border-radius: 6%;
-    box-shadow: 5px 10px 20px darkslategray;
+    border-radius: 1%;
+    border-left: 5px solid #FFC52C;
+    border-top: 5px solid #030D4F;
+    box-shadow: 1px 2px 10px slategray;
+    // box-shadow: 2px 5px 15px darkslategray;
 }
 
 form {

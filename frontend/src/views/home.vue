@@ -79,7 +79,7 @@ export default {
   .row
     .col.d-flex.justify-content-center
       .form-container.m-4
-        form.d-flex.flex-column(@submit.prevent='handleSubmit')
+        form.d-flex.flex-column(@submit.prevent='handleSubmit' autocomplete='off')
           label(for='keyword') Keyword
           input#keyword.form-control.mb-3.p-2(v-model='keyword' type='text' name='keyword' placeholder='Type something...')
           label(for='search-type') Search Type

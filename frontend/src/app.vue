@@ -64,10 +64,9 @@ export default {
   padding: 10px;
 
   a {
-    font-weight: 500;
     color: #030D4F;
-    // color: red;
     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     font-size: 1.2rem;
 
     &.router-link-exact-active {

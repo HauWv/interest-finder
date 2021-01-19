@@ -75,7 +75,7 @@ export default {
 .container
   .row
     .col.d-flex.justify-content-center
-      h1.my-5 Find Hidden Interests
+      h1.my-5.pt-5 Find Hidden Interests
   .row
     .col.d-flex.justify-content-center
       .form-container.m-4

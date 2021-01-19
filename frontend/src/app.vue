@@ -62,6 +62,10 @@ export default {
 #nav {
   padding: 10px;
 
+  nav {
+    background-color: white;
+  }
+
   a {
     color: #030D4F;
     font-family: 'Roboto', sans-serif;

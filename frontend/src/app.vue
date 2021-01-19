@@ -21,6 +21,7 @@ export default {
 <template lang="pug">
   #app
     #nav
+        nav.navbar.fixed-top.navbar-expand-sm.navbar-light
             //- a.navbar-brand(href='#') Logo
             button.navbar-toggler.ml-auto(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon

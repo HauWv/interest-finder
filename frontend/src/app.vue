@@ -79,5 +79,17 @@ export default {
       color: #17a2b8;
     }
   }
+
+  .logo {
+    width: 60px;
+  }
+
+  p {
+    color: #030D4F;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    // font-family: 'Leckerli One', cursive;
+  }
 }
 </style>

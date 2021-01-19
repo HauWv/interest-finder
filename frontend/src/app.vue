@@ -21,12 +21,11 @@ export default {
 <template lang="pug">
   #app
     #nav
-        nav.navbar.sticky-top.navbar-expand-sm.navbar-light.mx-5
             //- a.navbar-brand(href='#') Logo
             button.navbar-toggler.ml-auto(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarSupportedContent.collapse.navbar-collapse
-                ul.navbar-nav.ml-auto
+                ul.navbar-nav.ml-auto.mx-5.p-2
                     li.nav-item.p-2
                         router-link.nav-link(to="/") Home
                     li.nav-item.p-2

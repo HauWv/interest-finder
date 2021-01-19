@@ -51,7 +51,7 @@ export default {
 <style lang="scss">
 // @import '@/assets/theme.scss';
 @import 'bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css2?family=Imbue&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Imbue&family=Roboto:wght@400;500;700&display=swap');
 
 #app {
   // font-family: 'Roboto', sans-serif;

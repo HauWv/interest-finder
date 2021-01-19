@@ -22,7 +22,9 @@ export default {
   #app
     #nav
         nav.navbar.fixed-top.navbar-expand-sm.navbar-light
-            //- a.navbar-brand(href='#') Logo
+            a.navbar-brand.ml-4.mt-2(href='#')
+              img.logo(src='../public/img/cocktail.svg' alt='drink logo')
+            p.mt-4 Tonik
             button.navbar-toggler.ml-auto(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarSupportedContent.collapse.navbar-collapse
